@@ -1,2 +1,0 @@
-# solivins
-Web solivins

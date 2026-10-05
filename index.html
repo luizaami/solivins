@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solivins · Tapes, vins, entrepans i futbol · Lloret de Mar</title>
+<meta name="description" content="Bar restaurante en Lloret de Mar. Todos los partidos en directo, cervezas frías, tapas, bocadillos y vinos. Abierto todos los días de 8:00 a 24:00. Sin reservas.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0D0C0B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarOrPub","name":"Solivins","slogan":"Tapes · vins · entrepans","telephone":"+34972376552","priceRange":"10-20 €","servesCuisine":["Tapas","Bocadillos","Cocina catalana"],"address":{"@type":"PostalAddress","streetAddress":"Av. Santa Clotilde, 22","addressLocality":"Lloret de Mar","postalCode":"17310","addressRegion":"Girona","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":41.697037,"longitude":2.8245666},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"24:00"}],"sameAs":["https://www.instagram.com/solivins/"]}
+</script>
+<style>
+:root{
+  --bk:#0D0C0B; --ink:#151311; --char:#1D1A18; --char2:#262220;
+  --cream:#F5EEE3; --mute:rgba(245,238,227,.62); --line:rgba(245,238,227,.12);
+  --sun:#F39A2C; --sun2:#FFC15A; --wine:#8C2336; --wine2:#B23A4E;
+  --blau:#0B4EA2; --grana:#A50044; --live:#FF3B3B;
+  --disp:'Anton',Impact,'Arial Narrow',sans-serif;
+  --sans:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --script:'Yellowtail','Brush Script MT',cursive;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --g:clamp(16px,4vw,48px);
+  --hdr:98px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bk);color:var(--cream);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.loading,body.locked{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:6px}
+::selection{background:var(--sun);color:var(--bk)}
+section[id]{scroll-margin-top:70px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 var(--g)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--sun);margin:0 0 18px}
+.d-xl,.d-lg,.d-md{font-family:var(--disp);font-weight:400;text-transform:uppercase;margin:0;letter-spacing:.005em}
+.d-xl{font-size:clamp(64px,12vw,190px);line-height:.86}
+.d-lg{font-size:clamp(46px,6.6vw,104px);line-height:.9}
+.d-md{font-size:clamp(30px,3.4vw,48px);line-height:.95}
+.script{font-family:var(--script);font-weight:400;color:var(--sun);text-transform:none}
+.lead{font-size:clamp(17px,1.4vw,20px);color:var(--mute);max-width:54ch;margin:20px 0 0}
+.section{padding:clamp(88px,11vw,160px) 0}
+.on-cream{background:var(--cream);color:var(--bk)}
+.on-cream .lead{color:rgba(13,12,11,.66)}
+.on-cream .kicker{color:var(--wine)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:15px;letter-spacing:.02em;white-space:nowrap;transition:transform .4s var(--ease),background .3s,color .3s,border-color .3s,box-shadow .3s}
+.btn:active{transform:scale(.96)}
+.btn-sun{background:var(--sun);color:var(--bk)}
+.btn-sun:hover{background:var(--sun2);box-shadow:0 10px 30px -8px rgba(243,154,44,.6)}
+.btn-line{border:1.5px solid rgba(245,238,227,.5)}
+.btn-line:hover{border-color:var(--cream);background:var(--cream);color:var(--bk)}
+.btn-dark{background:var(--bk);color:var(--cream)}
+.btn-dark:hover{background:var(--wine)}
+.btn-sm{height:40px;padding:0 16px;font-size:13.5px}
+.btn svg{width:18px;height:18px}
+
+/* loader */
+.loader{position:fixed;inset:0;z-index:200;background:var(--bk);display:grid;place-items:center;transition:clip-path 1s cubic-bezier(.76,0,.24,1);clip-path:inset(0 0 0 0)}
+.loader.done{clip-path:inset(0 0 100% 0)}
+.loader-in{display:flex;flex-direction:column;align-items:center;gap:14px}
+.loader .sun{width:110px;height:110px;color:var(--sun);animation:spin 2.4s var(--ease) both}
+.loader .sun path{transform-origin:50px 50px;transform:scaleY(0);animation:ray .6s var(--ease) forwards;animation-delay:calc(var(--i) * 70ms)}
+@keyframes ray{to{transform:scaleY(1)}}
+@keyframes spin{from{transform:rotate(-120deg)}to{transform:rotate(0)}}
+.loader-word{font-family:var(--sans);font-weight:700;font-size:44px;letter-spacing:-.01em;line-height:1;clip-path:inset(0 100% 0 0);animation:wipe 1s var(--ease) .6s forwards}
+.loader-sub{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);opacity:0;animation:fade .8s ease 1.2s forwards}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+@keyframes fade{to{opacity:1}}
+
+/* header: ticker + nav */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:60;transition:transform .6s var(--ease)}
+.hdr.up{transform:translateY(-34px)}
+.ticker{height:34px;background:var(--sun);color:var(--bk);overflow:hidden;white-space:nowrap;display:flex;align-items:center}
+.ticker-track{display:inline-flex;align-items:center;animation:marq 70s linear infinite}
+.ticker-track span{display:inline-flex;align-items:center;gap:10px;margin-right:42px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.ticker-track span i{width:6px;height:6px;border-radius:50%;background:var(--bk);display:inline-block}
+.ticker-track span.live i{background:var(--live);animation:blink 1s infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes blink{50%{opacity:.25}}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 var(--g);transition:background .5s,box-shadow .5s}
+.hdr.solid .nav{background:rgba(13,12,11,.82);-webkit-backdrop-filter:saturate(160%) blur(16px);backdrop-filter:saturate(160%) blur(16px);box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:24px;letter-spacing:-.01em}
+.logo svg{width:32px;height:32px;color:var(--sun);transition:transform 1s var(--ease)}
+.logo:hover svg{transform:rotate(90deg)}
+.logo small{display:block;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--mute);margin-top:2px}
+.nav-links{display:flex;gap:4px;font-size:14.5px;font-weight:500}
+.nav-links a{padding:8px 14px;border-radius:999px;transition:background .3s,color .3s}
+.nav-links a:hover{background:rgba(245,238,227,.1)}
+.nav-cta{display:flex;align-items:center;gap:8px}
+.burger{display:none;width:44px;height:44px;border-radius:50%;align-items:center;justify-content:center}
+.burger span{width:20px;height:2px;background:currentColor;position:relative;display:block}
+.burger span::before,.burger span::after{content:'';position:absolute;left:0;right:0;height:2px;background:currentColor}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.mnav{position:fixed;inset:0;z-index:90;background:var(--sun);color:var(--bk);display:flex;flex-direction:column;padding:24px var(--g) 32px;clip-path:circle(0 at calc(100% - 40px) 60px);visibility:hidden;transition:clip-path .8s var(--ease),visibility 0s .8s}
+.mnav.open{clip-path:circle(150% at calc(100% - 40px) 60px);visibility:visible;transition:clip-path .8s var(--ease),visibility 0s}
+.mnav-close{align-self:flex-end;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;height:44px}
+.mnav ul{list-style:none;margin:auto 0;padding:0}
+.mnav li a{display:block;font-family:var(--disp);font-size:clamp(44px,12vw,72px);line-height:1.05;text-transform:uppercase;transform:translateY(30px);opacity:0;transition:transform .7s var(--ease),opacity .7s}
+.mnav.open li a{transform:none;opacity:1;transition-delay:calc(.2s + var(--k) * .05s)}
+.mnav p{margin:0;font-weight:600}
+
+/* pitch progress */
+.pitchbar{position:fixed;left:0;right:0;bottom:0;height:3px;z-index:70;background:rgba(245,238,227,.08);pointer-events:none}
+.pitchbar i{position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(90deg,var(--sun),var(--wine2));transform-origin:left;transform:scaleX(0)}
+.pitchbar .ball{position:absolute;bottom:-1px;left:0;width:20px;height:20px;margin-left:-10px;will-change:transform}
+.pitchbar .ball svg{width:100%;height:100%}
+#confetti{position:fixed;inset:0;z-index:150;pointer-events:none}
+
+/* hero (restaurante) */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;padding:calc(var(--hdr) + 40px) 0 clamp(48px,7vw,96px)}
+.hero-bg{position:absolute;inset:-6% 0 -6% 0;z-index:-3;will-change:transform}
+.hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 3s var(--ease)}
+.ready .hero-bg img{transform:scale(1)}
+.hero::before{content:'';position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(13,12,11,.65) 0%,rgba(13,12,11,.15) 32%,rgba(13,12,11,.5) 68%,var(--bk) 100%),linear-gradient(90deg,rgba(13,12,11,.75),rgba(13,12,11,0) 70%)}
+.glow{position:absolute;right:-12vw;top:-14vh;width:min(70vw,900px);aspect-ratio:1;border-radius:50%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(243,154,44,.38),transparent 70%);mix-blend-mode:screen;animation:glow 7s ease-in-out infinite}
+@keyframes glow{50%{opacity:.55;transform:scale(1.08)}}
+.hero-sun{position:absolute;right:var(--g);top:calc(var(--hdr) + 24px);width:clamp(80px,11vw,160px);color:var(--sun);opacity:0;transition:opacity 1.4s var(--ease) 1.2s}
+.ready .hero-sun{opacity:.95}
+.hero-sun svg{width:100%;height:100%;animation:turn 40s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.hero-in{width:100%}
+.hero-script{display:block;font-size:clamp(34px,4.2vw,62px);line-height:1;margin:0 0 6px}
+.hero-title{font-size:clamp(60px,19vw,280px);line-height:.8;margin:0;text-shadow:0 14px 60px rgba(0,0,0,.45);letter-spacing:-.005em}
+.hero-title .ch{display:inline-block;transform:translateY(110%) rotate(6deg);opacity:0;transition:transform 1s var(--ease),opacity 1s var(--ease);transition-delay:calc(.25s + var(--k) * 55ms)}
+.ready .hero-title .ch{transform:none;opacity:1}
+.hero-tag{display:flex;flex-wrap:wrap;gap:6px 16px;margin:18px 0 0;font-weight:600;font-size:clamp(13px,1.2vw,16px);letter-spacing:.32em;text-transform:uppercase}
+.hero-tag span:not(:last-child)::after{content:'·';margin-left:16px;color:var(--sun)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-top:30px}
+.hero-line{max-width:46ch;color:rgba(245,238,227,.85);margin:0 0 24px;font-size:clamp(16px,1.35vw,19px)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-side{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.match-pill{display:inline-flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;border-radius:999px;background:rgba(13,12,11,.62);border:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-weight:600;font-size:14.5px;transition:border-color .3s,transform .4s var(--ease)}
+.match-pill:hover{border-color:var(--sun);transform:translateY(-2px)}
+.match-pill .mp-ball{width:38px;height:38px;border-radius:50%;background:var(--sun);display:grid;place-items:center;flex:none}
+.match-pill .mp-ball svg{width:24px;height:24px;animation:turn 6s linear infinite}
+.match-pill small{display:block;font-size:10.5px;color:var(--sun);letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.rating{font-size:14px;color:var(--mute)}
+.rating b{color:var(--sun);letter-spacing:2px;margin-right:6px}
+.badge{--c1:#555;--c2:#333;--tx:#fff;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(90deg,var(--c1) 50%,var(--c2) 50%);color:var(--tx);font-weight:800;font-size:15px;letter-spacing:.02em;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18),0 6px 18px -6px rgba(0,0,0,.6);flex:none;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.badge.sm{width:30px;height:30px;font-size:9.5px}
+.badge.light{text-shadow:none}
+.fade{opacity:0;transform:translateY(24px);transition:opacity 1.1s var(--ease) var(--d,0s),transform 1.1s var(--ease) var(--d,0s)}
+.ready .fade{opacity:1;transform:none}
+
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(46px);transition:opacity 1.1s var(--ease) var(--d,0s),transform 1.1s var(--ease) var(--d,0s)}
+[data-reveal].in{opacity:1;transform:none}
+
+/* fem un solivins */
+.fem{position:relative;overflow:hidden}
+.fem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.bigsun{width:min(100%,520px);aspect-ratio:1;color:var(--sun);justify-self:center;will-change:transform;filter:drop-shadow(0 0 60px rgba(243,154,44,.25))}
+.bigsun svg{width:100%;height:100%}
+.lang{display:inline-flex;padding:4px;border-radius:999px;background:rgba(245,238,227,.08);margin-bottom:26px;position:relative}
+.lang button{position:relative;z-index:1;height:38px;padding:0 18px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.1em;transition:color .4s}
+.lang button[aria-pressed="true"]{color:var(--bk)}
+.lang .pill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--sun);transition:transform .5s var(--ease)}
+.lang.es .pill{transform:translateX(100%)}
+.fem-title{font-size:clamp(40px,5vw,68px);line-height:1;margin:0 0 6px}
+.fem-lines{margin:0;padding:0;list-style:none}
+.fem-lines li{overflow:hidden}
+.fem-lines span{display:block;font-family:var(--disp);text-transform:uppercase;font-size:clamp(54px,8vw,128px);line-height:.92;transition:transform .7s var(--ease) calc(var(--k) * 60ms),opacity .5s calc(var(--k) * 60ms)}
+.fem-lines li:nth-child(2) span{color:var(--sun)}
+.fem-lines li:nth-child(3) span{color:transparent;-webkit-text-stroke:1.5px var(--cream)}
+.fem-lines li:nth-child(4) span{color:var(--wine2)}
+.fem-lines.swap span{transform:translateY(-105%);opacity:0}
+.fem-lines.enter span{transform:translateY(105%);opacity:0;transition:none}
+
+/* stats */
+.stats{padding:0 0 clamp(88px,10vw,140px)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;border-top:1px solid var(--line);padding-top:48px}
+.stat-n{font-family:var(--disp);font-size:clamp(60px,7vw,104px);line-height:1;display:flex;align-items:flex-start;gap:4px}
+.stat-n sup{font-family:var(--sans);font-size:.3em;font-weight:700;color:var(--sun);margin-top:.25em}
+.stat p{margin:10px 0 0;color:var(--mute);font-size:15px;max-width:24ch}
+
+/* partidos (apartado compacto) */
+.matches{background:var(--char);position:relative;overflow:hidden;padding:clamp(64px,7vw,100px) 0}
+.pitch{position:absolute;inset:0;pointer-events:none;opacity:.06}
+.pitch svg{width:100%;height:100%}
+.matches .wrap{position:relative}
+.m-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap;margin-bottom:30px}
+.m-head p{margin:0;color:var(--mute);max-width:46ch;font-size:15.5px}
+.mstrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding-top:12px}
+.mcard{position:relative;padding:18px;border-radius:20px;background:rgba(13,12,11,.6);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--ease),border-color .3s;animation:rowIn .7s var(--ease) both;animation-delay:calc(var(--k) * 70ms)}
+.mcard:hover{transform:translateY(-4px);border-color:rgba(245,238,227,.32)}
+.mcard.big{border-color:var(--sun);background:linear-gradient(160deg,rgba(243,154,44,.2),rgba(13,12,11,.6) 60%)}
+@keyframes rowIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hot-tag{position:absolute;top:-11px;left:16px;background:var(--sun);color:var(--bk);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.mc-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mc-date{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.comp{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.comp.laliga{background:#FF4B44;color:#fff}
+.comp.ucl{background:#0E1E5B;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.mc-teams{display:grid;gap:8px;font-weight:600;font-size:15px}
+.mc-teams div{display:flex;align-items:center;gap:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-bot{display:flex;justify-content:space-between;align-items:flex-end;gap:8px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.mc-time b{display:block;font-family:var(--disp);font-weight:400;font-size:28px;line-height:1}
+.mc-time small{font-size:11.5px;color:var(--mute)}
+.mc-ics{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:background .3s,color .3s,border-color .3s}
+.mc-ics:hover{background:var(--sun);color:var(--bk);border-color:var(--sun)}
+.mc-ics svg{width:16px;height:16px}
+.m-note{margin:18px 0 0;font-size:12.5px;color:var(--mute)}
+
+
+/* carta categories (Kylie) */
+.cats{background:var(--sun);color:var(--bk)}
+.cats .kicker{color:var(--bk)}
+.cats-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.cats-head .script{color:var(--wine);font-size:clamp(40px,4.6vw,64px);display:block;line-height:1;margin-bottom:4px}
+.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cat{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:6px;display:flex;align-items:flex-end;justify-content:center;text-align:center;padding:28px 16px;color:var(--cream);isolation:isolate}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
+.cat::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 40%,rgba(13,12,11,.85) 100%)}
+.cat:hover img{transform:scale(1.08)}
+.cat b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(32px,3.4vw,52px);line-height:.95;text-transform:uppercase}
+.cat span{display:inline-block;margin-top:14px;background:var(--cream);color:var(--bk);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 16px;border-radius:4px;transition:background .3s}
+.cat:hover span{background:var(--sun)}
+
+/* menu */
+.menu-head{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:end;margin-bottom:36px}
+.menu-head .lead{margin:0;justify-self:end}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{position:relative;padding:14px 16px;font-family:var(--disp);font-size:22px;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;color:var(--mute);transition:color .3s}
+.tabs button::after{content:'';position:absolute;left:16px;right:16px;bottom:-5px;height:3px;border-radius:3px;background:var(--sun);transform:scaleX(0);transition:transform .45s var(--ease)}
+.tabs button[aria-selected="true"]{color:var(--cream)}
+.tabs button[aria-selected="true"]::after{transform:scaleX(1)}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.mitem{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:22px 0;border-bottom:1px solid var(--line);animation:rowIn .6s var(--ease) both;animation-delay:calc(var(--k) * 40ms)}
+.mitem .n{grid-row:span 2;font-family:var(--disp);font-size:22px;color:var(--sun);width:34px}
+.mitem h4{margin:0;font-family:var(--disp);font-weight:400;font-size:26px;letter-spacing:.01em;text-transform:uppercase;line-height:1.1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mitem h4 small{font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.12em;padding:3px 8px;border-radius:999px;background:var(--wine);color:var(--cream)}
+.mitem p{margin:0;color:var(--mute);font-size:15px}
+.menu-note{margin:26px 0 0;font-size:14px;color:var(--mute)}
+
+/* wheel */
+.wheel-sec{background:var(--wine);overflow:hidden;position:relative}
+.wheel-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:center}
+.wheel-sec .kicker{color:var(--sun2)}
+.wheel-sec .lead{color:rgba(245,238,227,.8)}
+.wheel-wrap{position:relative;width:min(100%,520px);aspect-ratio:1;justify-self:center}
+.wheel{width:100%;height:100%;transition:transform 4.6s cubic-bezier(.12,.72,.08,1);will-change:transform}
+.wheel svg{width:100%;height:100%;overflow:visible}
+.wheel text{font-family:var(--disp);font-size:9.5px;fill:var(--bk);letter-spacing:.03em}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:28px solid var(--cream);filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));z-index:2}
+.hub{position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:26%;aspect-ratio:1;border-radius:50%;background:var(--bk);color:var(--sun);display:grid;place-items:center;font-family:var(--disp);font-size:clamp(16px,2vw,24px);text-transform:uppercase;box-shadow:0 0 0 6px rgba(13,12,11,.25),0 20px 40px -10px rgba(0,0,0,.6);transition:transform .3s var(--ease),background .3s}
+.hub:hover{transform:translate(-50%,-50%) scale(1.06);background:#000}
+.result{margin-top:28px;padding:22px 24px;border-radius:20px;background:rgba(13,12,11,.35);border:1px solid rgba(245,238,227,.15);min-height:112px}
+.result .script{font-size:22px;color:var(--sun2)}
+.result h4{margin:2px 0 6px;font-family:var(--disp);font-weight:400;font-size:40px;line-height:1;text-transform:uppercase}
+.result p{margin:0;color:rgba(245,238,227,.8)}
+.result.pop{animation:popIn .6s var(--ease)}
+@keyframes popIn{from{transform:scale(.94);opacity:.3}to{transform:none;opacity:1}}
+
+/* matchday horizontal */
+.md-track{height:340vh;position:relative}
+.md-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.md-head{padding:0 var(--g);max-width:1320px;margin:0 auto 34px;width:100%}
+.md-rail{display:flex;gap:24px;padding:0 var(--g);will-change:transform}
+.md-card{flex:0 0 min(74vw,760px);height:min(58vh,520px);border-radius:28px;overflow:hidden;position:relative;display:flex;align-items:flex-end;isolation:isolate}
+.md-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.md-card::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(13,12,11,.9))}
+.md-copy{padding:clamp(24px,3vw,40px)}
+.md-copy b{font-family:var(--disp);font-weight:400;font-size:clamp(56px,6vw,96px);line-height:.9;color:var(--sun);display:block}
+.md-copy h3{margin:6px 0 8px;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(30px,3.2vw,48px);line-height:1}
+.md-copy p{margin:0;color:var(--mute);max-width:44ch}
+.md-progress{height:3px;background:var(--line);margin:34px var(--g) 0;border-radius:3px;overflow:hidden;max-width:1224px;align-self:center;width:calc(100% - 2 * var(--g))}
+.md-progress i{display:block;height:100%;background:var(--sun);transform-origin:left;transform:scaleX(0)}
+
+/* gallery */
+.hl{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 10px;margin-bottom:34px}
+.hl::-webkit-scrollbar{display:none}
+.hl a{flex:none;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.1em}
+.hl-ring{width:76px;height:76px;border-radius:50%;padding:3px;background:conic-gradient(from 90deg,var(--sun),var(--wine2),var(--sun2),var(--sun));transition:transform .5s var(--ease)}
+.hl a:hover .hl-ring{transform:scale(1.08) rotate(-8deg)}
+.hl-in{width:100%;height:100%;border-radius:50%;background:var(--bk);border:3px solid var(--bk);display:grid;place-items:center;font-size:28px;position:relative}
+.hl-in svg{position:absolute;inset:6px;color:rgba(243,154,44,.35)}
+.hl-in span{position:relative}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:10px}
+.gal a{overflow:hidden;border-radius:14px;position:relative;background:var(--char)}
+.gal a:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal a:nth-child(4){grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.gal a:hover img{transform:scale(1.07)}
+.gal a::after{content:'@solivins';position:absolute;left:14px;bottom:12px;font-weight:700;font-size:13px;opacity:0;transform:translateY(8px);transition:.4s var(--ease)}
+.gal a:hover::after{opacity:1;transform:none}
+
+/* reviews */
+.rev-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,7vw,110px);align-items:center}
+.rscore{font-family:var(--disp);font-size:clamp(130px,15vw,210px);line-height:.85}
+.stars{position:relative;display:inline-block;font-size:28px;letter-spacing:5px;color:rgba(245,238,227,.15);margin-top:16px;line-height:1}
+.stars::before{content:'★★★★★'}
+.stars i{position:absolute;inset:0 auto 0 0;width:0;overflow:hidden;color:var(--sun);white-space:nowrap;font-style:normal;transition:width 2s var(--ease) .3s}
+.stars i::before{content:'★★★★★'}
+.in .stars i{width:88%}
+.mentions{display:grid;gap:10px;margin-top:28px}
+.mention{display:grid;grid-template-columns:110px 1fr 36px;gap:12px;align-items:center;font-size:14px;font-weight:600}
+.mention div{height:8px;border-radius:8px;background:var(--line);overflow:hidden}
+.mention div i{display:block;height:100%;width:0;background:var(--sun);border-radius:8px;transition:width 1.6s var(--ease) calc(.4s + var(--k) * .12s)}
+.in .mention div i{width:var(--w)}
+.mention span:last-child{color:var(--mute);text-align:right}
+.quotes{position:relative;min-height:330px}
+.quote{position:absolute;inset:0 0 50px;margin:0;opacity:0;transform:translateY(20px) rotate(-1deg);transition:opacity .9s var(--ease),transform .9s var(--ease);pointer-events:none}
+.quote.on{opacity:1;transform:none;pointer-events:auto}
+.quote blockquote{margin:0 0 22px;font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(28px,3.2vw,46px);line-height:1.04}
+.quote blockquote::before{content:'“';color:var(--sun);margin-right:4px}
+.quote figcaption{color:var(--mute);font-size:14px}
+.quote figcaption b{color:var(--cream);margin-right:8px}
+.q-nav{position:absolute;left:0;bottom:0;display:flex;gap:10px}
+.q-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .3s,color .3s}
+.q-nav button:hover{background:var(--sun);color:var(--bk);border-color:var(--sun)}
+.q-nav svg{width:18px;height:18px}
+.marquee-q{margin-top:clamp(64px,8vw,110px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;white-space:nowrap}
+.marquee-q .ticker-track{animation-duration:55s}
+.marquee-q span{font-family:var(--script);font-size:clamp(26px,2.6vw,36px);color:var(--sun);margin-right:56px;text-transform:none;letter-spacing:0;font-weight:400}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);align-items:stretch}
+.vmap{border-radius:28px;overflow:hidden;min-height:520px;position:relative;background:#e8e0d4}
+.vmap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.6) contrast(1.05) sepia(.15)}
+.status{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:var(--bk);color:var(--cream);font-weight:600;font-size:14px;margin:24px 0 0}
+.status i{width:9px;height:9px;border-radius:50%;background:#aaa}
+.status.open i{background:#3BD16F;animation:pulseg 2s infinite}
+@keyframes pulseg{0%{box-shadow:0 0 0 0 rgba(59,209,111,.6)}70%{box-shadow:0 0 0 9px rgba(59,209,111,0)}100%{box-shadow:0 0 0 0 rgba(59,209,111,0)}}
+.vinfo{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;margin:34px 0}
+.vinfo small{display:block;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(13,12,11,.55);font-weight:600;margin-bottom:4px}
+.vinfo div{font-size:17px;font-weight:500}
+.vinfo a{border-bottom:1.5px solid rgba(13,12,11,.25);transition:border-color .3s,color .3s}
+.vinfo a:hover{color:var(--wine);border-color:currentColor}
+.vbadges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:30px}
+.vbadges span{padding:8px 14px;border-radius:999px;border:1.5px solid rgba(13,12,11,.15);font-size:13.5px;font-weight:600}
+.vctas{display:flex;gap:10px;flex-wrap:wrap}
+.on-cream .btn-line{border-color:rgba(13,12,11,.35);color:var(--bk)}
+.on-cream .btn-line:hover{background:var(--bk);color:var(--cream);border-color:var(--bk)}
+
+/* footer */
+.foot{padding:clamp(80px,9vw,130px) 0 30px;overflow:hidden;position:relative}
+.foot-big{font-family:var(--disp);text-transform:uppercase;font-size:clamp(64px,13vw,220px);line-height:.85;margin:0;color:transparent;-webkit-text-stroke:1.5px rgba(245,238,227,.35);transition:color .8s var(--ease)}
+.foot-big:hover{color:var(--sun);-webkit-text-stroke-color:var(--sun)}
+.foot-big .script{-webkit-text-stroke:0;color:var(--sun);font-size:.42em;display:block;margin-bottom:.1em}
+.foot-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:56px;padding-top:40px;border-top:1px solid var(--line)}
+.foot-cols h4{margin:0 0 14px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sun)}
+.foot-cols p,.foot-cols a{display:block;margin:0 0 7px;color:var(--mute);font-size:15px;transition:color .3s}
+.foot-cols a:hover{color:var(--cream)}
+.foot-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;margin-top:48px;font-size:12.5px;color:rgba(245,238,227,.4)}
+.fab{position:fixed;right:18px;bottom:22px;z-index:65;height:58px;min-width:58px;padding:0 18px;border-radius:999px;background:var(--sun);color:var(--bk);display:flex;align-items:center;gap:10px;font-weight:700;box-shadow:0 14px 30px -10px rgba(0,0,0,.6);transform:translateY(140px);transition:transform .7s var(--ease),background .3s}
+.fab.show{transform:none}
+.fab:hover{background:var(--sun2)}
+.fab svg{width:22px;height:22px}
+.fab span{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .6s var(--ease)}
+.fab:hover span{max-width:140px}
+
+/* responsive */
+@media (max-width:1100px){
+  .stats-grid{grid-template-columns:1fr 1fr;row-gap:40px}
+}
+@media (max-width:960px){
+  .nav-links{display:none}
+  .burger{display:inline-flex}
+  .nav-cta .btn{display:none}
+  .fem-grid,.wheel-grid,.rev-grid,.visit-grid,.m-head,.menu-head{grid-template-columns:1fr}
+  .m-head .lead,.menu-head .lead{justify-self:start}
+  .bigsun{width:min(70vw,360px)}
+  .mgrid{grid-template-columns:1fr}
+  .cats-grid{grid-template-columns:1fr 1fr}
+  .md-track{height:auto}
+  .md-sticky{position:static;height:auto;padding:88px 0}
+  .md-rail{flex-direction:column;transform:none!important}
+  .md-card{flex:none;width:100%;height:440px}
+  .md-progress{display:none}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .gal a:nth-child(4){grid-row:auto}
+  .vmap{min-height:340px;order:2}
+  .mstrip{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(230px,42%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;margin:0 calc(-1 * var(--g));padding-left:var(--g);padding-right:var(--g);scroll-padding-left:var(--g)}
+  .mstrip::-webkit-scrollbar{display:none}
+  .mcard{scroll-snap-align:start}
+  .hero-side{align-items:flex-start}
+  .foot-cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  :root{--hdr:94px}
+  .mteams{font-size:15px;gap:8px}
+  .mteams .t{gap:8px}
+  .badge.sm{width:28px;height:28px;font-size:9px}
+  .cats-grid{grid-template-columns:1fr 1fr;gap:6px}
+  .cat{padding:18px 10px}
+  .cat span{padding:7px 10px;font-size:10.5px}
+  .vinfo{grid-template-columns:1fr}
+  .foot-cols{grid-template-columns:1fr}
+  .quotes{min-height:400px}
+  .mention{grid-template-columns:90px 1fr 32px}
+  .logo small{display:none}
+  .mstrip{grid-auto-columns:74%}
+  .hero-sun{width:64px;top:calc(var(--hdr) + 16px)}
+}
+.rm *,.rm *::before,.rm *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+</style>
+<noscript><style>.loader{display:none}.fade,[data-reveal],.mteam,.hero-title .ch{opacity:1!important;transform:none!important}.vs{transform:none}</style></noscript>
+</head>
+<body class="loading">
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-in">
+    <span data-sun class="sun"></span>
+    <div class="loader-word">Solivins</div>
+    <div class="loader-sub">tapes · vins · entrepans · futbol</div>
+  </div>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="pitchbar" aria-hidden="true"><i></i><span class="ball"></span></div>
+
+<header class="hdr" id="hdr">
+  <div class="ticker" aria-label="Próximos partidos"><div class="ticker-track" id="ticker"></div></div>
+  <nav class="nav" aria-label="Principal">
+    <a class="logo" href="#inicio" aria-label="Solivins, inicio"><span data-sun></span><span>Solivins<small>tapes · vins · entrepans</small></span></a>
+    <div class="nav-links">
+      <a href="#carta">Carta</a><a href="#gira">Gira el sol</a><a href="#partidos">Partidos</a><a href="#ambiente">Ambiente</a><a href="#visitanos">Visítanos</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-sun btn-sm" href="tel:+34972376552">Llamar</a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="mnav" id="mnav" aria-hidden="true">
+  <button class="mnav-close" id="mclose" type="button">Cerrar ✕</button>
+  <ul>
+    <li><a href="#carta" style="--k:0">Carta</a></li>
+    <li><a href="#gira" style="--k:1">Gira el sol</a></li>
+    <li><a href="#partidos" style="--k:2">Partidos</a></li>
+    <li><a href="#opiniones" style="--k:3">Opiniones</a></li>
+    <li><a href="#ambiente" style="--k:4">Ambiente</a></li>
+    <li><a href="#visitanos" style="--k:5">Visítanos</a></li>
+  </ul>
+  <p>Av. Santa Clotilde, 22 · Lloret de Mar<br><a href="tel:+34972376552">972 37 65 52</a></p>
+</div>
+
+<main>
+<!-- HERO: el restaurante -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1565599837634-134bc3aadce8?auto=format&fit=crop&w=2200&q=72" alt="Patatas bravas y bebidas en la mesa" fetchpriority="high"></div>
+  <div class="glow" aria-hidden="true"></div>
+  <span class="hero-sun" data-sun aria-hidden="true"></span>
+  <div class="wrap hero-in" id="heroIn">
+    <p class="kicker fade" style="--d:.1s">Bar restaurante · Lloret de Mar</p>
+    <span class="script hero-script fade" style="--d:.2s">¿Fem un Solivins?</span>
+    <h1 class="d-xl hero-title" id="heroTitle" aria-label="Solivins">Solivins</h1>
+    <p class="hero-tag fade" style="--d:.9s"><span>Tapes</span><span>Vins</span><span>Entrepans</span></p>
+    <div class="hero-bottom">
+      <div class="fade" style="--d:1.1s">
+        <p class="hero-line">Cocina casera, bocadillos de los que se recuerdan, buenos vinos y el mejor ambiente de Lloret. Terraza y comedor, abiertos cada día de 8:00 a 24:00.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-sun" href="#carta">Ver la carta</a>
+          <a class="btn btn-line" href="#visitanos">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="hero-side fade" style="--d:1.3s">
+        <a class="match-pill" href="#partidos" id="matchPill"></a>
+        <a class="rating" href="#opiniones"><b>★★★★★</b>4,4 · 1.503 reseñas en Google</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEM UN SOLIVINS -->
+<section class="section fem" id="fem">
+  <div class="wrap fem-grid">
+    <div class="bigsun" id="bigsun" data-sun-big aria-hidden="true"></div>
+    <div>
+      <div class="lang" id="lang" role="group" aria-label="Idioma"><span class="pill"></span><button type="button" aria-pressed="true" data-l="ca">Català</button><button type="button" aria-pressed="false" data-l="es">Castellano</button></div>
+      <h2 class="script fem-title" id="femTitle">Fem un Solivins?</h2>
+      <ul class="fem-lines" id="femLines">
+        <li><span style="--k:0">Vins,</span></li>
+        <li><span style="--k:1">futbol,</span></li>
+        <li><span style="--k:2">entrepans</span></li>
+        <li><span style="--k:3">i molt més!</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Solivins en cifras">
+  <div class="wrap stats-grid">
+    <div class="stat" data-reveal><div class="stat-n"><span data-count="4.4" data-dec="1">0</span><sup>★</sup></div><p>valoración media en Google</p></div>
+    <div class="stat" data-reveal style="--d:.1s"><div class="stat-n"><span data-count="1503">0</span></div><p>reseñas de clientes que repiten</p></div>
+    <div class="stat" data-reveal style="--d:.2s"><div class="stat-n"><span data-count="16">0</span><sup>h</sup></div><p>abiertos cada día, de 8:00 a 24:00</p></div>
+    <div class="stat" data-reveal style="--d:.3s"><div class="stat-n"><span data-count="8">0</span></div><p>bocadillos de la casa, con buen pan y mejor producto</p></div>
+  </div>
+</section>
+
+<!-- CARTA: categorías -->
+<section class="section cats" id="carta">
+  <div class="wrap">
+    <div class="cats-head">
+      <div><p class="kicker" data-reveal>La carta</p><h2 class="d-lg" data-reveal><span class="script">Hechos con pasión</span>Buen pan, buen producto</h2></div>
+    </div>
+    <div class="cats-grid">
+      <a class="cat" href="#menu" data-tab="entrepans" data-reveal><img src="https://images.unsplash.com/photo-1749513762144-8991c898d95c?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"><div><b>Entrepans</b><span>Ver bocadillos</span></div></a>
+      <a class="cat" href="#menu" data-tab="tapes" data-reveal style="--d:.08s"><img src="https://images.unsplash.com/photo-1718912334263-1518476fe9b1?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"><div><b>Tapes</b><span>Ver tapas</span></div></a>
+      <a class="cat" href="#menu" data-tab="mar" data-reveal style="--d:.16s"><img src="https://images.unsplash.com/photo-1764397514672-63b1a7a79110?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"><div><b>Del mar</b><span>Ver platos</span></div></a>
+      <a class="cat" href="#menu" data-tab="plats" data-reveal><img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"><div><b>Burguers</b><span>Ver platos</span></div></a>
+      <a class="cat" href="#menu" data-tab="beure" data-reveal style="--d:.08s"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"><div><b>Vins</b><span>Ver bebidas</span></div></a>
+      <a class="cat" href="#menu" data-tab="beure" data-reveal style="--d:.16s"><img src="https://images.unsplash.com/photo-1618183479302-1e0aa382c36b?auto=format&fit=crop&w=900&q=70" alt="" loading="lazy"><div><b>Cerveses</b><span>Ver bebidas</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="menu-head">
+      <div><p class="kicker" data-reveal>Qué pedir</p><h2 class="d-lg" data-reveal>Para picar, para compartir, para el partido</h2></div>
+      <p class="lead" data-reveal>Cocina casera, buena materia prima y raciones generosas. Precio medio de 10 a 20 € por persona.</p>
+    </div>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="mgrid" id="mgrid"></div>
+    <p class="menu-note">Pregunta en barra por los platos del día y los precios. También para llevar.</p>
+  </div>
+</section>
+
+<!-- GIRA EL SOL -->
+<section class="section wheel-sec" id="gira">
+  <div class="wrap wheel-grid">
+    <div>
+      <p class="kicker" data-reveal>¿No sabes qué bocata pedir?</p>
+      <h2 class="d-lg" data-reveal>Gira el sol</h2>
+      <p class="lead" data-reveal>Nuestro sol tiene ocho rayos y nuestra carta, ocho bocadillos. Dale al centro y deja que el sol decida por ti.</p>
+      <div class="result" id="result" data-reveal><span class="script">Tu bocata de hoy…</span><h4>¿?</h4><p>Pulsa «¡Gira!» en el centro del sol.</p></div>
+    </div>
+    <div class="wheel-wrap" data-reveal style="--d:.15s">
+      <span class="pointer" aria-hidden="true"></span>
+      <div class="wheel" id="wheel"></div>
+      <button class="hub" id="spin" type="button">¡Gira!</button>
+    </div>
+  </div>
+</section>
+
+<!-- PARTIDOS (compacto) -->
+<section class="matches" id="partidos">
+  <div class="pitch" aria-hidden="true"><svg viewBox="0 0 1200 500" preserveAspectRatio="none" fill="none" stroke="#fff" stroke-width="2"><rect x="20" y="20" width="1160" height="460"/><line x1="600" y1="20" x2="600" y2="480"/><circle cx="600" cy="250" r="80"/><rect x="20" y="130" width="150" height="240"/><rect x="1030" y="130" width="150" height="240"/></svg></div>
+  <div class="wrap">
+    <div class="m-head">
+      <div><p class="kicker" data-reveal>⚽ En pantalla</p><h2 class="d-md" data-reveal>Los partidos importantes, aquí</h2></div>
+      <p data-reveal>Ponemos los grandes partidos de LaLiga y la Champions. Ven sin reservar y guárdate la fecha en el calendario.</p>
+    </div>
+    <div class="mstrip" id="mstrip"></div>
+    <p class="m-note">Horarios oficiales de fcbarcelona.es y laliga.com (consultados el 5 de octubre de 2026). Pueden cambiar.</p>
+  </div>
+</section>
+
+<!-- MATCHDAY (horizontal) -->
+<section id="ambiente">
+  <div class="md-track" id="mdTrack">
+    <div class="md-sticky">
+      <div class="md-head"><p class="kicker">Día de partido</p><h2 class="d-lg">Así se vive en Solivins</h2></div>
+      <div class="md-rail" id="mdRail">
+        <article class="md-card"><img src="https://images.unsplash.com/photo-1671368913134-c211bc02487f?auto=format&fit=crop&w=1500&q=70" alt="Bar con pantalla de televisión" loading="lazy"><div class="md-copy"><b>01</b><h3>Llega sin reservar</h3><p>Terraza y comedor amplio, abiertos de 8:00 a 24:00 todos los días. Siempre hay sitio para uno más.</p></div></article>
+        <article class="md-card"><img src="https://images.unsplash.com/photo-1618183479302-1e0aa382c36b?auto=format&fit=crop&w=1500&q=70" alt="Cerveza fría" loading="lazy"><div class="md-copy"><b>02</b><h3>Pide una caña bien fría</h3><p>Cervezas frías, tinto de verano y vinos para acompañar cada jugada.</p></div></article>
+        <article class="md-card"><img src="https://images.unsplash.com/photo-1749513762144-8991c898d95c?auto=format&fit=crop&w=1500&q=70" alt="Bocadillo" loading="lazy"><div class="md-copy"><b>03</b><h3>Un bocata de los nuestros</h3><p>Milanga, Serranito, Empanaooo… buen pan, buenos ingredientes y mucho sabor.</p></div></article>
+        <article class="md-card"><img src="https://images.unsplash.com/photo-1775642679594-89bb4b78e26e?auto=format&fit=crop&w=1500&q=70" alt="Amigos celebrando un gol" loading="lazy"><div class="md-copy"><b>04</b><h3>Y a cantar el gol amb els amics</h3><p>El mejor ambiente de Lloret para vivir cada partido como en el estadio.</p></div></article>
+      </div>
+      <div class="md-progress" aria-hidden="true"><i id="mdBar"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA / INSTAGRAM -->
+<section class="section" id="insta" style="padding-top:0">
+  <div class="wrap">
+    <p class="kicker" data-reveal>Síguenos en Instagram · @solivins</p>
+    <div class="hl" id="hl" data-reveal></div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section class="section" id="opiniones" style="background:var(--char)">
+  <div class="wrap rev-grid">
+    <div data-reveal>
+      <p class="kicker">Opiniones en Google</p>
+      <div class="rscore">4,4</div>
+      <div class="stars" aria-label="4,4 de 5"><i></i></div>
+      <p style="color:var(--mute);margin:12px 0 0">1.503 reseñas · Lo que más se menciona:</p>
+      <div class="mentions">
+        <div class="mention" style="--k:0;--w:100%"><span>Bocadillos</span><div><i></i></div><span>58</span></div>
+        <div class="mention" style="--k:1;--w:62%"><span>Tapas</span><div><i></i></div><span>36</span></div>
+        <div class="mention" style="--k:2;--w:34%"><span>Terraza</span><div><i></i></div><span>20</span></div>
+        <div class="mention" style="--k:3;--w:21%"><span>Carta</span><div><i></i></div><span>12</span></div>
+      </div>
+    </div>
+    <div class="quotes" id="quotes" data-reveal style="--d:.15s">
+      <figure class="quote"><blockquote>Fuimos por las reseñas y fue un acierto. Todo muy bueno, a precio asequible y siempre con una sonrisa.</blockquote><figcaption><b>Alfredo T.</b>Local Guide</figcaption></figure>
+      <figure class="quote"><blockquote>Terraza y comedor amplios y bien decorados. Servicio rápido y amable.</blockquote><figcaption><b>Fito H.</b>Local Guide</figcaption></figure>
+      <figure class="quote"><blockquote>Tapas y tinto de verano, todo buenísimo. ¿Y la tarta de dulce de leche? Una maravilla.</blockquote><figcaption><b>Chiara P.</b>Reseña en Google</figcaption></figure>
+      <div class="q-nav"><button type="button" id="qPrev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="qNext" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button></div>
+    </div>
+  </div>
+  <div class="marquee-q" aria-hidden="true"><div class="ticker-track" id="qMarquee"></div></div>
+</section>
+
+<!-- VISÍTANOS -->
+<section class="section on-cream" id="visitanos">
+  <div class="wrap visit-grid">
+    <div>
+      <p class="kicker" data-reveal>Visítanos</p>
+      <h2 class="d-lg" data-reveal>Av. Santa Clotilde, 22</h2>
+      <p class="lead" data-reveal style="margin-top:12px">17310 Lloret de Mar · Girona</p>
+      <div class="status" id="status" data-reveal><i></i><span data-status></span></div>
+      <div class="vinfo" data-reveal>
+        <div><small>Horario</small>Todos los días<br>de 8:00 a 24:00</div>
+        <div><small>Teléfono</small><a href="tel:+34972376552">972 37 65 52</a></div>
+        <div><small>Precio medio</small>10 – 20 € por persona</div>
+        <div><small>Instagram</small><a href="https://www.instagram.com/solivins/" target="_blank" rel="noopener">@solivins</a></div>
+      </div>
+      <div class="vbadges" data-reveal><span>⚽ Todos los partidos</span><span>☀️ Terraza</span><span>🍽️ Comer allí</span><span>🥡 Para llevar</span><span>🙌 Sin reservas</span></div>
+      <div class="vctas" data-reveal>
+        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Solivins%2C+Av.+Santa+Clotilde+22%2C+Lloret+de+Mar" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn-line" href="tel:+34972376552">Llamar ahora</a>
+      </div>
+    </div>
+    <div class="vmap" data-reveal style="--d:.12s"><iframe title="Mapa de Solivins" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Solivins%2C%20Av.%20Santa%20Clotilde%2022%2C%20Lloret%20de%20Mar&z=16&output=embed"></iframe></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <h2 class="foot-big"><span class="script">I tu, què?</span>¿Fem un Solivins?</h2>
+    <div class="foot-cols">
+      <div><h4>Solivins</h4><p>Tapes · vins · entrepans</p><p>Av. Santa Clotilde, 22<br>17310 Lloret de Mar</p></div>
+      <div><h4>Horario</h4><p>Lunes a domingo</p><p>8:00 – 24:00</p><p data-status></p></div>
+      <div><h4>Contacto</h4><a href="tel:+34972376552">972 37 65 52</a><a href="https://www.instagram.com/solivins/" target="_blank" rel="noopener">Instagram @solivins</a></div>
+      <div><h4>Explora</h4><a href="#carta">Carta</a><a href="#gira">Gira el sol</a><a href="#partidos">Partidos</a><a href="#visitanos">Cómo llegar</a></div>
+    </div>
+    <div class="foot-bot"><span>© 2026 Solivins · Lloret de Mar</span><span>Nombres de equipos y competiciones usados solo con fines informativos.</span></div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="tel:+34972376552" aria-label="Llamar a Solivins"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span>972 37 65 52</span></a>
+
+<script>
+(() => {
+const $ = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (RM) document.documentElement.classList.add('rm');
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const p2 = n => String(n).padStart(2, '0');
+const U = (id, w = 900) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`;
+
+/* ---------- Sun logo ---------- */
+function sun(big) {
+  let p = '';
+  for (let i = 0; i < 8; i++) p += `<path style="--i:${i}" transform="rotate(${i * 45} 50 50)" d="M47.6 36 L44.6 6.5 Q50 2.5 55.4 6.5 L52.4 36 Q50 38 47.6 36Z"/>`;
+  return `<svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">${p}${big ? '<circle cx="50" cy="50" r="7" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".6"/>' : ''}</svg>`;
+}
+$$('[data-sun]').forEach(el => { el.innerHTML = sun(false); });
+$$('[data-sun-big]').forEach(el => { el.innerHTML = sun(true); });
+$('.pitchbar .ball').innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#fff" stroke="#111" stroke-width="1.2"/><path d="M12 7.2l4 2.9-1.5 4.6h-5L8 10.1z" fill="#111"/><path d="M12 7.2V1.5M16 10.1l5.2-1.7M14.5 14.7l3.2 4.4M9.5 14.7l-3.2 4.4M8 10.1L2.8 8.4" stroke="#111" stroke-width="1.1" fill="none"/></svg>';
+
+/* ---------- Teams & matches ---------- */
+const TEAMS = {
+  'FC Barcelona': {s: 'Barça', a: 'FCB', c1: '#A50044', c2: '#004D98'},
+  'Real Madrid': {s: 'Real Madrid', a: 'RMA', c1: '#FFFFFF', c2: '#E9E4F4', tx: '#3D195B', light: 1},
+  'Getafe': {s: 'Getafe', a: 'GET', c1: '#005999', c2: '#00406E'},
+  'Galatasaray': {s: 'Galatasaray', a: 'GAL', c1: '#A90432', c2: '#E8A600'},
+  'Real Betis': {s: 'Betis', a: 'BET', c1: '#00954C', c2: '#0B6E3B'},
+  'Paris Saint Germain': {s: 'PSG', a: 'PSG', c1: '#004170', c2: '#DA291C'},
+  'Alavés': {s: 'Alavés', a: 'ALA', c1: '#0057B8', c2: '#003E83'},
+  'Aston Villa': {s: 'Aston Villa', a: 'AVL', c1: '#670E36', c2: '#5C8FC2'},
+  'Atlético Madrid': {s: 'Atlético', a: 'ATM', c1: '#CB3524', c2: '#272E61'},
+  'Villarreal': {s: 'Villarreal', a: 'VIL', c1: '#FFE667', c2: '#F5D000', tx: '#004A8F', light: 1},
+  'Sabah': {s: 'Sabah', a: 'SAB', c1: '#4A4A4A', c2: '#2A2A2A'},
+  'Deportivo de La Coruña': {s: 'Deportivo', a: 'DEP', c1: '#1B4D9B', c2: '#0E3270'},
+  'Celta de Vigo': {s: 'Celta', a: 'CEL', c1: '#6FB6E8', c2: '#3E8FCB'},
+  'Manchester City': {s: 'Man. City', a: 'MCI', c1: '#6CABDD', c2: '#1C2C5B'},
+  'Málaga': {s: 'Málaga', a: 'MAL', c1: '#00A5E3', c2: '#00609C'},
+  'Real Sociedad': {s: 'Real Sociedad', a: 'RSO', c1: '#143C8B', c2: '#0B2A66'},
+  'Espanyol': {s: 'Espanyol', a: 'ESP', c1: '#007FC8', c2: '#005A93'},
+  'Sporting CP': {s: 'Sporting CP', a: 'SCP', c1: '#008057', c2: '#00603F'},
+  'Como 1907': {s: 'Como', a: 'COM', c1: '#0A3A7D', c2: '#072A5A'},
+  'Sevilla': {s: 'Sevilla', a: 'SEV', c1: '#D4021D', c2: '#A30016'},
+  'Valencia CF': {s: 'Valencia', a: 'VAL', c1: '#EE3524', c2: '#111111'},
+  'Athletic Club': {s: 'Athletic', a: 'ATH', c1: '#EE2523', c2: '#B0151A'},
+  'Osasuna': {s: 'Osasuna', a: 'OSA', c1: '#D91A21', c2: '#0A346F'},
+  'Racing de Santander': {s: 'Racing', a: 'RAC', c1: '#00843D', c2: '#00602C'},
+  'Rayo Vallecano': {s: 'Rayo', a: 'RAY', c1: '#E53027', c2: '#B2201A'},
+  'Elche': {s: 'Elche', a: 'ELC', c1: '#05642C', c2: '#034A20'},
+  'Levante': {s: 'Levante', a: 'LEV', c1: '#B4053F', c2: '#004D98'},
+};
+const tm = n => TEAMS[n] || {s: n, a: n.slice(0, 3).toUpperCase(), c1: '#555', c2: '#333'};
+const badge = (n, size = '') => { const t = tm(n); return `<span class="badge ${size} ${t.light ? 'light' : ''}" style="--c1:${t.c1};--c2:${t.c2};--tx:${t.tx || '#fff'}" aria-hidden="true">${t.a}</span>`; };
+
+// t = hora oficial con su desfase horario (CEST +02 hasta el 25/10, CET +01 después)
+const M = [
+  {id:'l8-mal-esp', c:'laliga', j:8, h:'Málaga', a:'Espanyol', t:'2026-10-09T21:00:00+02:00', tv:'DAZN'},
+  {id:'l8-ala-atm', c:'laliga', j:8, h:'Alavés', a:'Atlético Madrid', t:'2026-10-10T16:15:00+02:00', tv:'Movistar LALIGA'},
+  {id:'l8-bar-get', c:'laliga', j:8, h:'FC Barcelona', a:'Getafe', t:'2026-10-10T18:30:00+02:00', tv:'DAZN'},
+  {id:'l8-rma-vil', c:'laliga', j:8, h:'Real Madrid', a:'Villarreal', t:'2026-10-10T21:00:00+02:00', tv:'Movistar Plus+'},
+  {id:'l8-bet-osa', c:'laliga', j:8, h:'Real Betis', a:'Osasuna', t:'2026-10-11T18:30:00+02:00', tv:'Movistar LALIGA'},
+  {id:'u2-gal-bar', c:'ucl', j:2, h:'Galatasaray', a:'FC Barcelona', t:'2026-10-13T21:00:00+02:00', tv:'Movistar Liga de Campeones'},
+  {id:'l9-esp-atm', c:'laliga', j:9, h:'Espanyol', a:'Atlético Madrid', t:'2026-10-17T14:00:00+02:00', tv:'DAZN'},
+  {id:'l9-bet-bar', c:'laliga', j:9, h:'Real Betis', a:'FC Barcelona', t:'2026-10-17T18:30:00+02:00', tv:'DAZN'},
+  {id:'l9-val-ath', c:'laliga', j:9, h:'Valencia CF', a:'Athletic Club', t:'2026-10-17T21:00:00+02:00', tv:'Movistar Plus+'},
+  {id:'l9-rma-sev', c:'laliga', j:9, h:'Real Madrid', a:'Sevilla', t:'2026-10-18T21:00:00+02:00', tv:'Movistar LALIGA'},
+  {id:'u3-psg-bar', c:'ucl', j:3, h:'Paris Saint Germain', a:'FC Barcelona', t:'2026-10-20T21:00:00+02:00', tv:'Movistar Liga de Campeones', big:1, prio:2},
+  {id:'l10-rac-esp', c:'laliga', j:10, h:'Racing de Santander', a:'Espanyol', t:'2026-10-24T16:15:00+02:00', tv:'DAZN'},
+  {id:'l10-atm-dep', c:'laliga', j:10, h:'Atlético Madrid', a:'Deportivo de La Coruña', t:'2026-10-24T21:00:00+02:00', tv:'Movistar Plus+'},
+  {id:'l10-cel-bet', c:'laliga', j:10, h:'Celta de Vigo', a:'Real Betis', t:'2026-10-25T16:15:00+01:00', tv:'DAZN'},
+  {id:'l10-bar-rma', c:'laliga', j:10, h:'FC Barcelona', a:'Real Madrid', t:'2026-10-25T21:00:00+01:00', tv:'DAZN', big:1, prio:3, title:'El Clásico'},
+  {id:'l11-bar-ala', c:'laliga', j:11, h:'FC Barcelona', a:'Alavés', t:'2026-10-31T21:00:00+01:00', tv:'Por confirmar'},
+  {id:'u4-bar-avl', c:'ucl', j:4, h:'FC Barcelona', a:'Aston Villa', t:'2026-11-03T21:00:00+01:00', tv:'Movistar Liga de Campeones'},
+  {id:'l12-atm-bar', c:'laliga', j:12, h:'Atlético Madrid', a:'FC Barcelona', d:'2026-11-08', big:1, prio:2},
+  {id:'l13-bar-vil', c:'laliga', j:13, h:'FC Barcelona', a:'Villarreal', d:'2026-11-21', d2:'2026-11-22'},
+  {id:'u5-sab-bar', c:'ucl', j:5, h:'Sabah', a:'FC Barcelona', t:'2026-11-25T18:45:00+01:00', tv:'Movistar Liga de Campeones'},
+  {id:'l14-dep-bar', c:'laliga', j:14, h:'Deportivo de La Coruña', a:'FC Barcelona', d:'2026-11-29'},
+  {id:'l15-bar-cel', c:'laliga', j:15, h:'FC Barcelona', a:'Celta de Vigo', d:'2026-12-05', d2:'2026-12-06'},
+  {id:'u6-bar-mci', c:'ucl', j:6, h:'FC Barcelona', a:'Manchester City', t:'2026-12-08T21:00:00+01:00', tv:'Movistar Liga de Campeones', big:1, prio:2},
+  {id:'l16-mal-bar', c:'laliga', j:16, h:'Málaga', a:'FC Barcelona', d:'2026-12-13'},
+  {id:'l17-bar-rso', c:'laliga', j:17, h:'FC Barcelona', a:'Real Sociedad', d:'2026-12-19', d2:'2026-12-20'},
+  {id:'l18-esp-bar', c:'laliga', j:18, h:'Espanyol', a:'FC Barcelona', d:'2027-01-03', big:1, prio:1, title:'Derbi barceloní'},
+  {id:'u7-scp-bar', c:'ucl', j:7, h:'Sporting CP', a:'FC Barcelona', t:'2027-01-20T21:00:00+01:00', tv:'Movistar Liga de Campeones'},
+  {id:'u8-bar-com', c:'ucl', j:8, h:'FC Barcelona', a:'Como 1907', t:'2027-01-27T21:00:00+01:00', tv:'Movistar Liga de Campeones'},
+];
+const COMP = {laliga: 'LaLiga', ucl: 'Champions'};
+const TZ = 'Europe/Madrid';
+M.forEach(m => {
+  m.start = m.t ? new Date(m.t) : new Date(m.d + 'T12:00:00+01:00');
+  m.end = m.t ? new Date(+m.start + 2 * 3600e3) : new Date(new Date((m.d2 || m.d) + 'T23:59:00+01:00'));
+  m.barca = m.h === 'FC Barcelona' || m.a === 'FC Barcelona';
+});
+M.sort((x, y) => x.start - y.start);
+const fmt = (d, o) => new Intl.DateTimeFormat('es-ES', {timeZone: TZ, ...o}).format(d).replace(/[.,]/g, '').toUpperCase();
+const hhmm = d => new Intl.DateTimeFormat('es-ES', {timeZone: TZ, hour: '2-digit', minute: '2-digit', hourCycle: 'h23'}).format(d);
+const upcoming = () => M.filter(m => +m.end > Date.now());
+const isLive = m => m.t && Date.now() >= +m.start && Date.now() < +m.end;
+const short = n => tm(n).s;
+
+/* ---------- Partidos importantes ---------- */
+// Importantes = los del Barça (LaLiga y Champions) y los partidazos marcados
+const important = () => upcoming().filter(m => m.t && (m.barca || m.big));
+// El más destacado: el de mayor prioridad entre los partidazos con hora (a igualdad, el más cercano)
+const topM = upcoming().filter(m => m.big && m.t).sort((x, y) => (y.prio || 0) - (x.prio || 0) || x.start - y.start)[0] || important()[0];
+const label = m => m.title || `${short(m.h)} – ${short(m.a)}`;
+
+/* ---------- Ticker ---------- */
+function buildTicker() {
+  const items = ['Tapes · Vins · Entrepans', 'Abiertos todos los días de 8:00 a 24:00', 'Terraza y comedor', 'Bocadillos de la casa'];
+  if (topM) items.splice(2, 0, `⚽ ${label(topM)}: ${fmt(topM.start, {weekday: 'short', day: '2-digit', month: 'short'})} · ${hhmm(topM.start)} h`);
+  items.push('Sin reservas · ¡Te esperamos!');
+  const html = items.map(t => `<span><i></i>${t}</span>`).join('');
+  $('#ticker').innerHTML = html + html;
+}
+buildTicker();
+
+/* ---------- .ics ---------- */
+function ics(m) {
+  if (!m.t) return;
+  const f = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  const txt = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Solivins//Partidos//ES', 'BEGIN:VEVENT', `UID:${m.id}@solivins`, `DTSTAMP:${f(new Date())}`, `DTSTART:${f(m.start)}`, `DTEND:${f(m.end)}`,
+    `SUMMARY:${short(m.h)} - ${short(m.a)} en Solivins`, 'LOCATION:Solivins\\, Av. Santa Clotilde 22\\, 17310 Lloret de Mar',
+    `DESCRIPTION:${COMP[m.c]} · Jornada ${m.j}${m.tv ? ' · ' + m.tv : ''}. Sin reservas\\, ¡te esperamos!`, 'BEGIN:VALARM', 'TRIGGER:-PT1H', 'ACTION:DISPLAY', 'DESCRIPTION:¡Hoy hay partido en Solivins!', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([txt], {type: 'text/calendar;charset=utf-8'}));
+  a.download = `solivins-${m.id}.ics`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+}
+
+/* ---------- Hero ---------- */
+$('#heroTitle').innerHTML = [...'Solivins'].map((ch, k) => `<span class="ch" style="--k:${k}" aria-hidden="true">${ch}</span>`).join('');
+const BALL = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#fff" stroke="#111" stroke-width="1.2"/><path d="M12 7.2l4 2.9-1.5 4.6h-5L8 10.1z" fill="#111"/><path d="M12 7.2V1.5M16 10.1l5.2-1.7M14.5 14.7l3.2 4.4M9.5 14.7l-3.2 4.4M8 10.1L2.8 8.4" stroke="#111" stroke-width="1.1" fill="none"/></svg>';
+if (topM) {
+  $('#matchPill').innerHTML = `<span class="mp-ball">${BALL}</span><span><small>${isLive(topM) ? 'En directo ahora' : 'Próximo partidazo'}</small>${label(topM)} · ${fmt(topM.start, {weekday: 'short', day: 'numeric', month: 'short'})} · ${hhmm(topM.start)} h</span>`;
+} else $('#matchPill').remove();
+
+/* ---------- Franja de partidos ---------- */
+function renderStrip() {
+  let list = important().slice(0, 5);
+  if (topM && !list.includes(topM)) list = [...list.slice(0, 4), topM];
+  $('#mstrip').innerHTML = list.map((m, k) => `<article class="mcard ${m === topM || m.big ? 'big' : ''}" style="--k:${k}">
+    ${isLive(m) ? '<span class="hot-tag">● En directo</span>' : m === topM ? `<span class="hot-tag">🔥 ${m.title || 'Partidazo'}</span>` : ''}
+    <div class="mc-top"><span class="mc-date">${fmt(m.start, {weekday: 'short', day: '2-digit', month: 'short'})}</span><span class="comp ${m.c}">${COMP[m.c]}</span></div>
+    <div class="mc-teams"><div>${badge(m.h, 'sm')}${short(m.h)}</div><div>${badge(m.a, 'sm')}${short(m.a)}</div></div>
+    <div class="mc-bot"><div class="mc-time"><b>${hhmm(m.start)}</b><small>${m.tv}</small></div><button class="mc-ics" type="button" data-ics="${m.id}" aria-label="Guardar ${short(m.h)} contra ${short(m.a)} en el calendario" title="Guardar en el calendario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg></button></div>
+  </article>`).join('');
+}
+$('#mstrip').addEventListener('click', e => { const b = e.target.closest('[data-ics]'); if (b) ics(M.find(m => m.id === b.dataset.ics)); });
+renderStrip();
+
+/* ---------- Carta ---------- */
+const MENU = {
+  entrepans: {l: 'Entrepans', items: [
+    ['Milanga', 'Filetes de ternera rebozados, queso Edam, lechuga tierna, tomate, salsa especial de la casa y huevos fritos.', 1],
+    ['Serranito', 'Lomo de cerdo a la plancha, pimientos verdes asados, jamón serrano y queso Edam.', 1],
+    ['Empanaooo', 'Pechuga de pollo rebozada, lechuga tierna, cebolla roja y salsa especial.', 1],
+    ['Pollito', 'Pechuga a la plancha con hierbas, lechuga tierna y queso Brie.', 1],
+    ['Huevo', 'Bacon a la plancha, cebolla frita, huevos y queso Edam.', 1],
+    ['Chicha', 'Salchichas, queso Edam y pimiento verde.', 1],
+    ['Atuna', 'Migas de atún, pimientos del piquillo y olivas rellenas.', 1],
+    ['Frankfurt clásico', 'Pan brioche y frankfurt.', 1],
+  ]},
+  tapes: {l: 'Tapes', items: [
+    ['Patatas bravas', 'La tapa estrella de la casa y de las más pedidas.'],
+    ['Nachos', 'Para compartir mientras rueda el balón.'],
+    ['Huevos estrellados', 'Huevos rotos sobre patatas. Un clásico que nunca falla.'],
+    ['Torrades', 'Pan tostado con lo mejor de la casa.'],
+    ['Ensalada de queso de cabra', '«La mejor ensalada de queso de cabra», según nuestros clientes. El secreto está en la vinagreta.'],
+    ['Patatas fritas', 'Crujientes, para picar durante el partido.'],
+  ]},
+  plats: {l: 'Plats & burguers', items: [
+    ['Burguers', 'Hamburguesas con buen pan y buen producto.'],
+    ['Cachopo', 'Para los que llegan con hambre de verdad.'],
+    ['Escalope vienés', 'Filete empanado, dorado y crujiente.'],
+    ['Solomillo', 'A la plancha, en su punto.'],
+  ]},
+  mar: {l: 'Del mar', items: [
+    ['Pata de pulpo a la plancha', 'Tierna pata de pulpo marcada a la plancha, con patatas sabrosas en adobo y una suave salsa de pimientos asados.', 1],
+    ['Sepia a la plancha', 'Con salsa de ajo y perejil.', 1],
+    ['Calamares a la plancha', 'Con salsa de ajo y perejil.', 1],
+    ['Suprema de salmón', 'A la plancha, con eneldo y limón.', 1],
+  ]},
+  dolcos: {l: 'Postres & cafè', items: [
+    ['Tarta de dulce de leche', 'Con base de chocolate. «Una maravilla», dicen quienes la han probado.'],
+    ['Capuchino', 'Desde las 8:00, para empezar bien el día.'],
+  ]},
+  beure: {l: 'Per beure', items: [
+    ['Cervezas bien frías', 'Cañas y botellines para cada partido.'],
+    ['Tinto de verano', 'El favorito de la terraza.'],
+    ['Vins', 'Sol i vins: tintos, blancos y rosados para brindar.'],
+  ]},
+};
+const tabs = $('#tabs'), mgrid = $('#mgrid');
+tabs.innerHTML = Object.entries(MENU).map(([k, v], i) => `<button type="button" role="tab" data-tab="${k}" aria-selected="${i === 0}">${v.l}</button>`).join('');
+function renderMenu(k) {
+  $$('button', tabs).forEach(b => b.setAttribute('aria-selected', b.dataset.tab === k));
+  mgrid.innerHTML = MENU[k].items.map(([n, d, ig], i) => `<div class="mitem" style="--k:${i}"><span class="n">${p2(i + 1)}</span><h4>${n}${ig ? '<small>DE LA CASA</small>' : ''}</h4><p>${d}</p></div>`).join('');
+}
+tabs.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) renderMenu(b.dataset.tab); });
+$$('.cat').forEach(c => c.addEventListener('click', () => renderMenu(c.dataset.tab)));
+renderMenu('entrepans');
+
+/* ---------- Gira el sol ---------- */
+const BOC = MENU.entrepans.items;
+const order = ['Huevo', 'Pollito', 'Serranito', 'Chicha', 'Empanaooo', 'Milanga', 'Atuna', 'Frankfurt clásico'].map(n => BOC.find(b => b[0] === n));
+let rays = '';
+order.forEach((b, i) => {
+  const fill = i % 2 ? 'var(--sun2)' : 'var(--sun)';
+  rays += `<g transform="rotate(${i * 45} 100 100)"><path d="M95 72 L89 16 Q100 8 111 16 L105 72 Q100 76 95 72Z" fill="${fill}"/><text x="100" y="44" text-anchor="middle" transform="rotate(-90 100 44)">${b[0].toUpperCase().replace(' CLÁSICO', '')}</text></g>`;
+});
+$('#wheel').innerHTML = `<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="rgba(13,12,11,.18)"/>${rays}</svg>`;
+let rot = 0, spinning = false;
+$('#spin').addEventListener('click', () => {
+  if (spinning) return; spinning = true;
+  const k = Math.floor(Math.random() * 8);
+  rot = rot + 1800 + (((-k * 45 - rot) % 360) + 360) % 360;
+  $('#wheel').style.transform = `rotate(${rot}deg)`;
+  setTimeout(() => {
+    spinning = false;
+    const b = order[k], r = $('#result');
+    r.innerHTML = `<span class="script">Tu bocata de hoy…</span><h4>${b[0]}</h4><p>${b[1]}</p>`;
+    r.classList.remove('pop'); void r.offsetWidth; r.classList.add('pop');
+    const w = $('#wheel').getBoundingClientRect(); confetti(90, w.left + w.width / 2, w.top + 20);
+  }, RM ? 50 : 4700);
+});
+
+/* ---------- Galería + highlights ---------- */
+const HL = [['FUTBOL', '⚽'], ['SMILE', '😊'], ['PLATS', '🍽️'], ['BURGUERS', '🍔'], ['AMICS', '🤝'], ['TORRADES', '🍞'], ['VINS', '🍷']];
+$('#hl').innerHTML = HL.map(([l, e]) => `<a href="https://www.instagram.com/solivins/" target="_blank" rel="noopener"><span class="hl-ring"><span class="hl-in">${sun(false)}<span>${e}</span></span></span>${l}</a>`).join('');
+const GAL = ['1759171053149-d5cce4261405', '1510812431401-41d2bd2722f3', '1565599837630-15af1496cd6e', '1775642678527-790cb8be724d', '1551782450-a2132b4ba21d', '1615830783066-26a99bc9d959', '1656423521731-9665583f100c', '1764397514672-63b1a7a79110'];
+$('#gal').innerHTML = GAL.map((id, i) => `<a href="https://www.instagram.com/solivins/" target="_blank" rel="noopener" aria-label="Ver en Instagram" data-reveal style="--d:${(i % 4) * .06}s"><img src="${U(id, i === 0 ? 1200 : 700)}" alt="" loading="lazy"></a>`).join('');
+
+/* ---------- Opiniones ---------- */
+const quotes = $$('.quote'); let qi = 0, qt;
+const showQ = i => { qi = (i + quotes.length) % quotes.length; quotes.forEach((q, k) => q.classList.toggle('on', k === qi)); };
+const autoQ = () => { clearInterval(qt); if (!RM) qt = setInterval(() => showQ(qi + 1), 6000); };
+$('#qPrev').addEventListener('click', () => { showQ(qi - 1); autoQ(); });
+$('#qNext').addEventListener('click', () => { showQ(qi + 1); autoQ(); });
+showQ(0); autoQ();
+const QM = ['«Unos bocadillos impresionantes»', '«Comida catalana casera, buena materia prima»', '«Raciones generosas y buen servicio»', '«La mejor ensalada de queso de cabra»', '«Las camareras muy atentas y simpáticas»', '«Tocará repetir»'];
+const qm = QM.map(q => `<span>${q}</span>`).join('');
+$('#qMarquee').innerHTML = qm + qm;
+
+/* ---------- Idioma Fem un Solivins ---------- */
+const FEM = {ca: ['Fem un Solivins?', ['Vins,', 'futbol,', 'entrepans', 'i molt més!']], es: ['¿Hacemos un Solivins?', ['Vinos,', 'fútbol,', 'bocadillos', '¡y mucho más!']]};
+let lang = 'ca';
+$('#lang').addEventListener('click', e => {
+  const b = e.target.closest('[data-l]'); if (!b || b.dataset.l === lang) return;
+  lang = b.dataset.l;
+  $('#lang').classList.toggle('es', lang === 'es');
+  $$('#lang button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  const ul = $('#femLines');
+  ul.classList.add('swap');
+  setTimeout(() => {
+    $('#femTitle').textContent = FEM[lang][0];
+    $$('span', ul).forEach((s, i) => { s.textContent = FEM[lang][1][i]; });
+    ul.classList.remove('swap'); ul.classList.add('enter'); void ul.offsetWidth; ul.classList.remove('enter');
+  }, RM ? 0 : 450);
+});
+
+/* ---------- Estado abierto / cerrado ---------- */
+function madridMin() {
+  const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', {timeZone: TZ, hour: 'numeric', minute: 'numeric', hourCycle: 'h23'}).formatToParts(new Date()).map(x => [x.type, x.value]));
+  return (+p.hour % 24) * 60 + (+p.minute);
+}
+function paintStatus() {
+  const open = madridMin() >= 480;
+  $$('[data-status]').forEach(el => { el.textContent = open ? 'Abierto ahora · cierra a las 24:00' : 'Cerrado · abrimos a las 8:00'; });
+  $('#status').classList.toggle('open', open);
+}
+paintStatus();
+
+/* ---------- Reveal + contadores ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -10% 0px', threshold: .01});
+$$('[data-reveal]').forEach(el => io.observe(el));
+const nf = {format: n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.')};
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; cio.unobserve(e.target);
+  const el = e.target, to = +el.dataset.count, from = +(el.dataset.from || 0), dec = +(el.dataset.dec || 0);
+  const out = v => dec ? v.toFixed(dec).replace('.', ',') : nf.format(Math.round(v));
+  if (RM) { el.textContent = out(to); return; }
+  const t0 = performance.now();
+  const step = t => { const p = clamp((t - t0) / 1800), k = 1 - Math.pow(1 - p, 3); el.textContent = out(from + (to - from) * k); if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}), {threshold: .5});
+$$('[data-count]').forEach(el => cio.observe(el));
+
+/* ---------- Confetti ---------- */
+const cv = $('#confetti'), cx = cv.getContext('2d');
+const COLORS = ['#F39A2C', '#FFC15A', '#8C2336', '#F5EEE3', '#A50044', '#004D98'];
+let bits = [], running = false;
+function sizeCv() { const d = devicePixelRatio || 1; cv.width = innerWidth * d; cv.height = innerHeight * d; cx.setTransform(d, 0, 0, d, 0, 0); }
+sizeCv(); addEventListener('resize', sizeCv);
+function confetti(n, x, y) {
+  if (RM) return;
+  for (let i = 0; i < n; i++) bits.push({x, y, vx: (Math.random() - .5) * 16, vy: -Math.random() * 15 - 4, s: 5 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - .5) * .35, c: COLORS[i % COLORS.length], life: 0});
+  if (!running) { running = true; requestAnimationFrame(frame); }
+}
+function frame() {
+  cx.clearRect(0, 0, innerWidth, innerHeight);
+  bits.forEach(b => { b.vy += .38; b.vx *= .985; b.x += b.vx; b.y += b.vy; b.r += b.vr; b.life++;
+    cx.save(); cx.translate(b.x, b.y); cx.rotate(b.r); cx.fillStyle = b.c; cx.fillRect(-b.s / 2, -b.s / 3, b.s, b.s * .66); cx.restore(); });
+  bits = bits.filter(b => b.y < innerHeight + 40 && b.life < 420);
+  if (bits.length) requestAnimationFrame(frame); else { running = false; cx.clearRect(0, 0, innerWidth, innerHeight); }
+}
+
+/* ---------- Menú móvil ---------- */
+const mnav = $('#mnav');
+const setM = o => { mnav.classList.toggle('open', o); mnav.setAttribute('aria-hidden', !o); $('#burger').setAttribute('aria-expanded', o); document.body.classList.toggle('locked', o); };
+$('#burger').addEventListener('click', () => setM(true));
+$('#mclose').addEventListener('click', () => setM(false));
+mnav.addEventListener('click', e => { if (e.target.closest('a')) setM(false); });
+addEventListener('keydown', e => { if (e.key === 'Escape') setM(false); });
+
+/* ---------- Scroll: cabecera, balón, parallax, sol, horizontal ---------- */
+const hdr = $('#hdr'), bar = $('.pitchbar i'), ball = $('.pitchbar .ball'), fab = $('#fab');
+const heroBg = $('.hero-bg'), heroIn = $('#heroIn'), bigsun = $('#bigsun');
+const mdTrack = $('#mdTrack'), mdRail = $('#mdRail'), mdBar = $('#mdBar');
+let ticking = false, lastY = 0;
+function update() {
+  ticking = false;
+  const y = scrollY, vh = innerHeight, max = document.documentElement.scrollHeight - vh, p = max > 0 ? y / max : 0;
+  bar.style.transform = `scaleX(${p})`;
+  ball.style.transform = `translateX(${p * (innerWidth - 4)}px) rotate(${y * .6}deg)`;
+  hdr.classList.toggle('solid', y > 60);
+  hdr.classList.toggle('up', y > 200 && y > lastY);
+  lastY = y;
+  fab.classList.toggle('show', y > vh * .9);
+  if (!RM) {
+    if (y < vh * 1.2) { heroBg.style.transform = `translate3d(0,${y * .3}px,0)`; heroIn.style.opacity = String(clamp(1 - y / (vh * .8))); heroIn.style.transform = `translate3d(0,${y * .12}px,0)`; }
+    const sr = bigsun.getBoundingClientRect();
+    if (sr.bottom > 0 && sr.top < vh) bigsun.style.transform = `rotate(${(sr.top - vh / 2) * -.25}deg)`;
+  }
+  if (innerWidth > 960) {
+    const r = mdTrack.getBoundingClientRect(), pr = clamp(-r.top / (r.height - vh));
+    const dist = mdRail.scrollWidth - innerWidth;
+    mdRail.style.transform = `translate3d(${-pr * Math.max(0, dist)}px,0,0)`;
+    mdBar.style.transform = `scaleX(${pr})`;
+  }
+}
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, {passive: true});
+addEventListener('resize', update);
+update();
+
+/* ---------- Loader + relojes ---------- */
+const loaded = new Promise(r => document.readyState === 'complete' ? r() : addEventListener('load', r));
+Promise.race([Promise.all([loaded, new Promise(r => setTimeout(r, RM ? 100 : 1900))]), new Promise(r => setTimeout(r, 4000))]).then(() => {
+  $('#loader').classList.add('done'); document.body.classList.remove('loading'); document.body.classList.add('ready');
+  setTimeout(() => $('#loader').remove(), 1100);
+});
+
+setInterval(() => { paintStatus(); }, 60000);
+})();
+</script>
+</body>
+</html>
