@@ -210,16 +210,32 @@ a.stat:hover p{color:var(--sun)}
 .cover-in small{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase}
 .cover-in .open{position:absolute;bottom:18px;left:50%;transform:translate(-50%,8px);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--brown);color:var(--paper);padding:9px 15px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity .4s,transform .4s var(--ease)}
 .cover:hover .open,.cover:focus-visible .open{opacity:1;transform:translate(-50%,0)}
-.cats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.cat{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:6px;display:flex;align-items:flex-end;justify-content:center;text-align:center;padding:28px 16px;color:var(--cream);isolation:isolate}
-.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
-.cat::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 35%,rgba(13,12,11,.88) 100%)}
-.cat:hover img{transform:scale(1.08)}
-.cat b{display:block;font-family:var(--disp);font-weight:400;font-size:clamp(32px,3.4vw,52px);line-height:.95;text-transform:uppercase}
-.cat em{display:block;font-style:normal;font-weight:700;font-size:14px;letter-spacing:.06em;color:var(--sun2);margin-top:6px}
-.cat span{display:inline-block;margin-top:14px;background:var(--cream);color:var(--bk);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 16px;border-radius:4px;transition:background .3s}
-.cat:hover span{background:var(--sun)}
+.menu-card{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);background:var(--paper);color:var(--brown);border-radius:24px;padding:clamp(32px,4.6vw,64px);box-shadow:0 50px 80px -50px rgba(59,34,25,.6),inset 0 0 0 1px rgba(59,34,25,.06)}
+.menu-card::before{content:'';position:absolute;inset:12px;border:1px solid rgba(59,34,25,.14);border-radius:16px;pointer-events:none}
+.orn{display:flex;align-items:center;gap:10px;margin:0;color:var(--brown)}
+.orn i{flex:1;height:1.5px;background:currentColor;opacity:.3}
+.orn .os{width:22px;height:22px;flex:none;color:var(--wine);transition:transform 1.2s var(--ease)}
+.orn .os svg{width:100%;height:100%;display:block}
+.tcol:hover .orn .os{transform:rotate(90deg)}
+.orn b{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(24px,2.4vw,34px);letter-spacing:.02em;line-height:1;white-space:nowrap}
+.tsub{text-align:center;margin:8px 0 18px;font-family:var(--script);font-size:24px;color:var(--wine)}
+.tlist{list-style:none;margin:0;padding:0}
+.ti{padding:11px 12px;margin:0 -12px;border-radius:12px}
+.menu-card .ti{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease) calc(var(--k) * 45ms),transform .7s var(--ease) calc(var(--k) * 45ms),background .3s}
+.menu-card.in .ti{opacity:1;transform:none}
+.ti:hover{background:rgba(59,34,25,.06)}
+.ti-row{display:flex;align-items:baseline;gap:10px}
+.ti-n{font-weight:600;font-size:17px;line-height:1.3}
+.ti-dots{flex:1;min-width:18px;border-bottom:2px dotted rgba(59,34,25,.28);transform:translateY(-5px);transition:border-color .3s}
+.ti:hover .ti-dots{border-color:var(--sun)}
+.ti-p{font-family:var(--disp);font-size:21px;letter-spacing:.02em;white-space:nowrap}
+.ti-p small{font-family:var(--sans);font-size:12px;font-weight:700;opacity:.7;margin-left:2px}
+.ti-d{margin:2px 0 0;font-size:14px;font-style:italic;color:rgba(59,34,25,.7)}
+.tmore{margin:26px 0 0;padding-top:22px;border-top:1px dashed rgba(59,34,25,.25);font-size:15px;color:rgba(59,34,25,.82)}
+.tmore a{font-weight:700;white-space:nowrap;border-bottom:2px solid var(--sun);transition:color .3s}
+.tmore a:hover{color:var(--wine)}
 .menu-dia{margin:26px 0 0;font-weight:700;font-size:15px;color:rgba(13,12,11,.8)}
+.nav-links .ext,.mnav .ext,.foot-cols .ext{opacity:.55;font-size:.85em;margin-left:3px}
 
 /* gira el sol */
 .wheel-sec{background:var(--paper);color:var(--brown);overflow:hidden;position:relative}
@@ -462,7 +478,7 @@ a.stat:hover p{color:var(--sun)}
   .nav-cta .btn{display:none}
   .fem-grid,.wheel-grid,.rev-grid,.visit-grid,.cats-head,.vins-grid,.advise,.cv-head{grid-template-columns:minmax(0,1fr)}
   .bigsun{width:min(70vw,360px)}
-  .cats-grid{grid-template-columns:1fr 1fr}
+  .menu-card{grid-template-columns:minmax(0,1fr)}
   .cover{width:min(64vw,260px)}
   .sunglass{width:min(86vw,420px)}
   .md-track{height:auto}
@@ -486,9 +502,7 @@ a.stat:hover p{color:var(--sun)}
   .logo svg{width:30px;height:30px}
   .logo small{display:none}
   .badge.sm{width:28px;height:28px;font-size:9px}
-  .cats-grid{gap:6px}
-  .cat{padding:18px 10px}
-  .cat span{padding:7px 10px;font-size:10.5px}
+  .menu-card{padding:28px 18px}
   .wgrid{grid-template-columns:1fr}
   .vinfo{grid-template-columns:1fr}
   .foot-cols{grid-template-columns:1fr}
@@ -521,7 +535,7 @@ a.stat:hover p{color:var(--sun)}
   <nav class="nav" aria-label="Principal">
     <a class="logo" href="#inicio" data-ia="nav.home" aria-label="Solivins, inicio"><span data-sun></span><span>Solivins<small>Bistro · vinoteca</small></span></a>
     <div class="nav-links">
-      <a href="#carta" data-i="nav.carta">Carta</a><a href="#vins" data-i="nav.vins">Vinos</a><a href="#gira" data-i="nav.gira">Gira el sol</a><a href="#partidos" data-i="nav.partidos">Partidos</a><a href="#opiniones" data-i="nav.opiniones">Opiniones</a><a href="#visitanos" data-i="nav.visita">Visítanos</a>
+      <a data-pdf="carta" href="https://drive.google.com/file/d/1xw-TPEs9EKhH3aj0dtjnQTGzIV67y_Sf/view?usp=sharing" target="_blank" rel="noopener"><span data-i="nav.carta">Carta</span><span class="ext" aria-hidden="true">↗</span></a><a href="#tapas" data-i="nav.tapas">Tapas</a><a href="#vins" data-i="nav.vins">Vinos</a><a href="#gira" data-i="nav.gira">Gira el sol</a><a href="#partidos" data-i="nav.partidos">Partidos</a><a href="#opiniones" data-i="nav.opiniones">Opiniones</a><a href="#visitanos" data-i="nav.visita">Visítanos</a>
     </div>
     <div class="nav-cta">
       <div class="lsw" role="group" data-ia="lang.aria" aria-label="Idioma"><span class="pill"></span><button type="button" data-l="ca" aria-pressed="false" title="Català">CA</button><button type="button" data-l="es" aria-pressed="true" title="Castellano">ES</button></div>
@@ -534,13 +548,14 @@ a.stat:hover p{color:var(--sun)}
 <div class="mnav" id="mnav" aria-hidden="true">
   <button class="mnav-close" id="mclose" type="button" data-i="nav.close">Cerrar ✕</button>
   <ul>
-    <li><a href="#carta" style="--k:0" data-i="nav.carta">Carta</a></li>
-    <li><a href="#vins" style="--k:1" data-i="nav.vins">Vinos</a></li>
-    <li><a href="#carta-vins" style="--k:2" data-i="nav.cvins">Carta de vinos</a></li>
-    <li><a href="#gira" style="--k:3" data-i="nav.gira">Gira el sol</a></li>
-    <li><a href="#partidos" style="--k:4" data-i="nav.partidos">Partidos</a></li>
-    <li><a href="#opiniones" style="--k:5" data-i="nav.opiniones">Opiniones</a></li>
-    <li><a href="#visitanos" style="--k:6" data-i="nav.visita">Visítanos</a></li>
+    <li><a data-pdf="carta" href="https://drive.google.com/file/d/1xw-TPEs9EKhH3aj0dtjnQTGzIV67y_Sf/view?usp=sharing" target="_blank" rel="noopener" style="--k:0"><span data-i="nav.carta">Carta</span><span class="ext" aria-hidden="true">↗</span></a></li>
+    <li><a href="#tapas" style="--k:1" data-i="nav.tapas">Tapas</a></li>
+    <li><a href="#vins" style="--k:2" data-i="nav.vins">Vinos</a></li>
+    <li><a href="#carta-vins" style="--k:3" data-i="nav.cvins">Carta de vinos</a></li>
+    <li><a href="#gira" style="--k:4" data-i="nav.gira">Gira el sol</a></li>
+    <li><a href="#partidos" style="--k:5" data-i="nav.partidos">Partidos</a></li>
+    <li><a href="#opiniones" style="--k:6" data-i="nav.opiniones">Opiniones</a></li>
+    <li><a href="#visitanos" style="--k:7" data-i="nav.visita">Visítanos</a></li>
   </ul>
   <p>Av. Santa Clotilde, 22 · Lloret de Mar<br><a href="tel:+34972376552">972 37 65 52</a></p>
 </div>
@@ -560,7 +575,7 @@ a.stat:hover p{color:var(--sun)}
       <div class="fade" style="--d:1.1s">
         <p class="hero-line" data-i="hero.line">Cocina casera para compartir, bocadillos de los que se recuerdan y una carta de 28 vinos, casi todos por copas. Terraza y comedor, abiertos cada día de 8:00 a 24:00.</p>
         <div class="hero-ctas">
-          <a class="btn btn-sun" href="#carta" data-i="hero.cta1">Ver la carta</a>
+          <a class="btn btn-sun" data-pdf="carta" href="https://drive.google.com/file/d/1xw-TPEs9EKhH3aj0dtjnQTGzIV67y_Sf/view?usp=sharing" target="_blank" rel="noopener"><span data-i="hero.cta1">Ver la carta</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           <a class="btn btn-line" href="#vins" data-i="hero.cta2">Nuestros vinos</a>
         </div>
       </div>
@@ -600,24 +615,32 @@ a.stat:hover p{color:var(--sun)}
   </div>
 </section>
 
-<!-- CARTA -->
-<section class="section cats" id="carta">
+<!-- TAPAS (tal cual en la carta) -->
+<section class="section cats" id="tapas">
   <div class="wrap">
     <div class="cats-head">
       <div>
         <p class="kicker" data-reveal data-i="carta.kicker">La carta</p>
-        <h2 class="d-lg" data-reveal><span class="script" data-i="carta.script">Hechos con pasión</span><span data-i="carta.title">Buen pan, buen producto</span></h2>
-        <p class="lead" data-reveal data-i="carta.lead">Tapas para compartir, tostadas, bocadillos, burgers, carnes y pescado a la plancha. Toda la carta, con precios, a un clic.</p>
-        <div class="carta-cta" data-reveal>
-          <a class="btn btn-dark" data-pdf="carta" href="https://drive.google.com/file/d/1xw-TPEs9EKhH3aj0dtjnQTGzIV67y_Sf/view?usp=sharing" target="_blank" rel="noopener"><span data-i="carta.cta">Ver la carta completa</span><svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-          <p class="pdf-note" data-i="carta.pdf">PDF · se abre en una pestaña nueva</p>
-        </div>
+        <h2 class="d-lg" data-reveal><span class="script" data-i="carta.script">Para compartir</span><span data-i="carta.title">Tapas</span></h2>
+        <p class="lead" data-reveal data-i="carta.lead">Nuestras tapas, tal cual están en la carta: de la tierra y de mar. Para pedir unas cuantas y compartir.</p>
       </div>
-      <a class="cover" data-pdf="carta" href="https://drive.google.com/file/d/1xw-TPEs9EKhH3aj0dtjnQTGzIV67y_Sf/view?usp=sharing" target="_blank" rel="noopener" data-ia="carta.open" aria-label="Abrir la carta" data-reveal style="--d:.15s">
-        <div class="cover-in"><span data-sun></span><b>Solivins</b><small>Bistro · vinoteca</small><span class="open" data-i="carta.open">Abrir la carta</span></div>
+      <a class="cover" data-pdf="carta" href="https://drive.google.com/file/d/1xw-TPEs9EKhH3aj0dtjnQTGzIV67y_Sf/view?usp=sharing" target="_blank" rel="noopener" data-ia="carta.open" aria-label="Abrir la carta completa" data-reveal style="--d:.15s">
+        <div class="cover-in"><span data-sun></span><b>Solivins</b><small>Bistro · vinoteca</small><span class="open" data-i="carta.open">Abrir la carta completa</span></div>
       </a>
     </div>
-    <div class="cats-grid" id="tiles"></div>
+    <div class="menu-card" data-reveal>
+      <div class="tcol">
+        <h3 class="orn"><span class="os" data-sun aria-hidden="true"></span><i></i><b data-i="carta.land">Tapas de la tierra</b><i></i><span class="os" data-sun aria-hidden="true"></span></h3>
+        <p class="tsub" data-i="carta.share">para compartir</p>
+        <ul class="tlist" id="tapLand"></ul>
+      </div>
+      <div class="tcol">
+        <h3 class="orn"><span class="os" data-sun aria-hidden="true"></span><i></i><b data-i="carta.sea">Tapas de mar</b><i></i><span class="os" data-sun aria-hidden="true"></span></h3>
+        <p class="tsub" data-i="carta.share">para compartir</p>
+        <ul class="tlist" id="tapSea"></ul>
+        <p class="tmore" data-ih="carta.more">Tostadas, bocadillos, ensaladas, burgers, carnes y pescado a la plancha: <a data-pdf="carta" href="#" target="_blank" rel="noopener">mira la carta completa ↗</a></p>
+      </div>
+    </div>
     <p class="menu-dia" data-reveal data-i="carta.dia">¿Menú del día? Pregúntanos en barra.</p>
   </div>
 </section>
@@ -799,7 +822,7 @@ a.stat:hover p{color:var(--sun)}
       <div><h4>Solivins</h4><p>Bistro · vinoteca</p><p>Av. Santa Clotilde, 22<br>17310 Lloret de Mar</p></div>
       <div><h4 data-i="f.hours">Horario</h4><p data-i="f.days">Lunes a domingo</p><p>8:00 – 24:00</p><p data-status></p></div>
       <div><h4 data-i="f.contact">Contacto</h4><a href="tel:+34972376552">972 37 65 52</a><a href="https://www.instagram.com/solivins/" target="_blank" rel="noopener">Instagram @solivins</a></div>
-      <div><h4 data-i="f.explore">Explora</h4><a href="#carta" data-i="nav.carta">Carta</a><a href="#vins" data-i="nav.vins">Vinos</a><a href="#carta-vins" data-i="nav.cvins">Carta de vinos</a><a href="#partidos" data-i="nav.partidos">Partidos</a><a href="#visitanos" data-i="v.go">Cómo llegar</a></div>
+      <div><h4 data-i="f.explore">Explora</h4><a data-pdf="carta" href="https://drive.google.com/file/d/1xw-TPEs9EKhH3aj0dtjnQTGzIV67y_Sf/view?usp=sharing" target="_blank" rel="noopener"><span data-i="nav.carta">Carta</span><span class="ext" aria-hidden="true">↗</span></a><a href="#tapas" data-i="nav.tapas">Tapas</a><a href="#vins" data-i="nav.vins">Vinos</a><a href="#carta-vins" data-i="nav.cvins">Carta de vinos</a><a href="#partidos" data-i="nav.partidos">Partidos</a><a href="#visitanos" data-i="v.go">Cómo llegar</a></div>
     </div>
     <div class="foot-bot"><span>© 2026 Solivins · Lloret de Mar</span><span data-i="f.legal">Nombres de equipos y competiciones usados solo con fines informativos.</span></div>
   </div>
@@ -836,18 +859,20 @@ es: {
   'meta.title': 'Solivins · Bistró y vinoteca en Lloret de Mar',
   'meta.desc': 'Bistró y vinoteca en Lloret de Mar: tapas para compartir, bocadillos, burgers y {n} vinos, casi todos por copas. Terraza y partidos importantes en pantalla. Abierto cada día de 8:00 a 24:00.',
   'tick.aria': 'Novedades de Solivins',
-  'nav.home': 'Solivins, inicio', 'nav.carta': 'Carta', 'nav.vins': 'Vinos', 'nav.cvins': 'Carta de vinos', 'nav.gira': 'Gira el sol', 'nav.partidos': 'Partidos', 'nav.opiniones': 'Opiniones', 'nav.visita': 'Visítanos', 'nav.call': 'Llamar', 'nav.menu': 'Abrir menú', 'nav.close': 'Cerrar ✕',
+  'nav.home': 'Solivins, inicio', 'nav.carta': 'Carta', 'nav.tapas': 'Tapas', 'nav.vins': 'Vinos', 'nav.cvins': 'Carta de vinos', 'nav.gira': 'Gira el sol', 'nav.partidos': 'Partidos', 'nav.opiniones': 'Opiniones', 'nav.visita': 'Visítanos', 'nav.call': 'Llamar', 'nav.menu': 'Abrir menú', 'nav.close': 'Cerrar ✕',
   'lang.aria': 'Idioma', 'lang.hint': 'Toda la web cambia de idioma.',
   'hero.img': 'Patatas bravas y bebidas en la mesa', 'hero.kicker': 'Bistró · vinoteca · Lloret de Mar', 'hero.script': '¿Hacemos un Solivins?', 'hero.t1': 'Tapas', 'hero.t2': 'Vinos', 'hero.t3': 'Bocadillos',
   'hero.line': 'Cocina casera para compartir, bocadillos de los que se recuerdan y una carta de {n} vinos, casi todos por copas. Terraza y comedor, abiertos cada día de 8:00 a 24:00.',
   'hero.cta1': 'Ver la carta', 'hero.cta2': 'Nuestros vinos', 'hero.rating': '4,4 · 1.503 reseñas en Google', 'pill.next': 'Próximo partidazo', 'pill.live': 'En directo ahora',
   'fem.title': '¿Hacemos un Solivins?',
   'stats.aria': 'Solivins en cifras', 'st1': 'valoración media en Google', 'st2': 'reseñas en Google · ver todas ↗', 'st3': 'abiertos cada día, de 8:00 a 24:00', 'st4': 'vinos en carta, casi todos por copas',
-  'carta.kicker': 'La carta', 'carta.script': 'Hechos con pasión', 'carta.title': 'Buen pan, buen producto',
-  'carta.lead': 'Tapas para compartir, tostadas, bocadillos, burgers, carnes y pescado a la plancha. Toda la carta, con precios, a un clic.',
-  'carta.cta': 'Ver la carta completa', 'carta.pdf': 'PDF · se abre en una pestaña nueva', 'carta.open': 'Abrir la carta', 'carta.from': 'desde', 'carta.see': 'Ver en la carta ↗', 'carta.dia': '¿Menú del día? Pregúntanos en barra.',
-  'gira.kicker': '¿No sabes qué pedir?', 'gira.title': 'Gira el sol', 'gira.lead': 'Nuestro sol está hecho de ocho botellas y cada una esconde un favorito de la carta. Dale al centro y deja que el sol elija por ti.',
-  'gira.pre': 'Hoy te toca…', 'gira.empty': 'Pulsa «¡Gira!» en el centro del sol.', 'gira.btn': '¡Gira!', 'gira.see': 'Ver en la carta',
+  'carta.kicker': 'La carta', 'carta.script': 'Para compartir', 'carta.title': 'Tapas',
+  'carta.lead': 'Nuestras tapas, tal cual están en la carta: de la tierra y de mar. Para pedir unas cuantas y compartir.',
+  'carta.land': 'Tapas de la tierra', 'carta.sea': 'Tapas de mar', 'carta.share': 'para compartir', 'carta.open': 'Abrir la carta completa',
+  'carta.more': 'Tostadas, bocadillos, ensaladas, burgers, carnes y pescado a la plancha: <a data-pdf="carta" href="#" target="_blank" rel="noopener">mira la carta completa ↗</a>',
+  'carta.pdf': 'PDF · se abre en una pestaña nueva', 'carta.dia': '¿Menú del día? Pregúntanos en barra.',
+  'gira.kicker': '¿No sabes qué bocata pedir?', 'gira.title': 'Gira el sol', 'gira.lead': 'Nuestro sol está hecho de ocho botellas y tenemos ocho bocatas especiales. Dale al centro y deja que el sol elija el tuyo.',
+  'gira.pre': 'Tu bocata de hoy…', 'gira.empty': 'Pulsa «¡Gira!» en el centro del sol.', 'gira.btn': '¡Gira!',
   'vins.kicker': 'Bistró · vinoteca', 'vins.script': 'Nuestro nombre lo dice todo',
   'vins.lead': 'Solivins viene de «sol i vins»: sol y vinos. Por eso nuestra carta reúne {n} vinos de {o} orígenes, y casi todos se sirven por copas para que pruebes sin pedir la botella.',
   'vins.c1': 'vinos en carta', 'vins.c2': 'se sirven por copas', 'vins.c3': 'la copa, desde', 'vins.c4': 'orígenes: de Rioja y Terra Alta a Portugal y Francia',
@@ -863,7 +888,7 @@ es: {
   'md.kicker': 'Día de partido', 'md.title': 'Así se vive en Solivins',
   'md.1t': 'Llega sin reservar', 'md.1p': 'Terraza y comedor amplio, abiertos de 8:00 a 24:00 todos los días. Siempre hay sitio para uno más.',
   'md.2t': 'Una caña bien fría o una copa de vino', 'md.2p': 'Cerveza fría, vermut o cualquiera de nuestros vinos por copas para acompañar cada jugada.',
-  'md.3t': 'Un bocata de los nuestros', 'md.3p': 'Milanga, Serranito, Empanado… buen pan, buenos ingredientes y mucho sabor.',
+  'md.3t': 'Un bocata de los nuestros', 'md.3p': 'Milanga, Serranito, Pollito… buen pan, buenos ingredientes y mucho sabor.',
   'md.4t': 'Y a cantar el gol con los amigos', 'md.4p': 'El mejor ambiente de Lloret para vivir cada partido como en el estadio.',
   'insta.kicker': 'Síguenos en Instagram · @solivins', 'insta.aria': 'Ver en Instagram',
   'op.kicker': 'Opiniones en Google', 'op.stars': '4,4 de 5', 'op.count': '1.503 reseñas · Lo que más se menciona:', 'op.btn': 'Ver todas las reseñas en Google', 'op.prev': 'Anterior', 'op.next': 'Siguiente', 'op.review': 'Reseña en Google',
@@ -876,18 +901,20 @@ ca: {
   'meta.title': 'Solivins · Bistro i vinoteca a Lloret de Mar',
   'meta.desc': 'Bistro i vinoteca a Lloret de Mar: tapes per compartir, entrepans, burgers i {n} vins, gairebé tots per copes. Terrassa i partits importants en pantalla. Obert cada dia de 8:00 a 24:00.',
   'tick.aria': 'Novetats de Solivins',
-  'nav.home': 'Solivins, inici', 'nav.carta': 'Carta', 'nav.vins': 'Vins', 'nav.cvins': 'Carta de vins', 'nav.gira': 'Gira el sol', 'nav.partidos': 'Partits', 'nav.opiniones': 'Opinions', 'nav.visita': "Visita'ns", 'nav.call': 'Truca', 'nav.menu': 'Obre el menú', 'nav.close': 'Tanca ✕',
+  'nav.home': 'Solivins, inici', 'nav.carta': 'Carta', 'nav.tapas': 'Tapes', 'nav.vins': 'Vins', 'nav.cvins': 'Carta de vins', 'nav.gira': 'Gira el sol', 'nav.partidos': 'Partits', 'nav.opiniones': 'Opinions', 'nav.visita': "Visita'ns", 'nav.call': 'Truca', 'nav.menu': 'Obre el menú', 'nav.close': 'Tanca ✕',
   'lang.aria': 'Idioma', 'lang.hint': 'Tot el web canvia d’idioma.',
   'hero.img': 'Patates braves i begudes a taula', 'hero.kicker': 'Bistro · vinoteca · Lloret de Mar', 'hero.script': 'Fem un Solivins?', 'hero.t1': 'Tapes', 'hero.t2': 'Vins', 'hero.t3': 'Entrepans',
   'hero.line': 'Cuina casolana per compartir, entrepans dels que es recorden i una carta de {n} vins, gairebé tots per copes. Terrassa i menjador, oberts cada dia de 8:00 a 24:00.',
   'hero.cta1': 'Veure la carta', 'hero.cta2': 'Els nostres vins', 'hero.rating': '4,4 · 1.503 ressenyes a Google', 'pill.next': 'Proper partidàs', 'pill.live': 'En directe ara',
   'fem.title': 'Fem un Solivins?',
   'stats.aria': 'Solivins en xifres', 'st1': 'valoració mitjana a Google', 'st2': 'ressenyes a Google · veure-les totes ↗', 'st3': 'oberts cada dia, de 8:00 a 24:00', 'st4': 'vins a la carta, gairebé tots per copes',
-  'carta.kicker': 'La carta', 'carta.script': 'Fets amb passió', 'carta.title': 'Bon pa, bon producte',
-  'carta.lead': 'Tapes per compartir, torrades, entrepans, burgers, carns i peix a la planxa. Tota la carta, amb preus, a un clic.',
-  'carta.cta': 'Veure la carta completa', 'carta.pdf': 'PDF · s’obre en una pestanya nova', 'carta.open': 'Obrir la carta', 'carta.from': 'des de', 'carta.see': 'Veure a la carta ↗', 'carta.dia': 'Menú del dia? Pregunta-ho a la barra.',
-  'gira.kicker': 'No saps què demanar?', 'gira.title': 'Gira el sol', 'gira.lead': 'El nostre sol està fet de vuit ampolles i cadascuna amaga un favorit de la carta. Prem el centre i deixa que el sol triï per tu.',
-  'gira.pre': 'Avui et toca…', 'gira.empty': 'Prem «Gira!» al centre del sol.', 'gira.btn': 'Gira!', 'gira.see': 'Veure a la carta',
+  'carta.kicker': 'La carta', 'carta.script': 'Per compartir', 'carta.title': 'Tapes',
+  'carta.lead': 'Les nostres tapes, tal com són a la carta: de la terra i de mar. Per demanar-ne unes quantes i compartir.',
+  'carta.land': 'Tapes de la terra', 'carta.sea': 'Tapes de mar', 'carta.share': 'per compartir', 'carta.open': 'Obrir la carta completa',
+  'carta.more': 'Torrades, entrepans, amanides, burgers, carns i peix a la planxa: <a data-pdf="carta" href="#" target="_blank" rel="noopener">mira la carta completa ↗</a>',
+  'carta.pdf': 'PDF · s’obre en una pestanya nova', 'carta.dia': 'Menú del dia? Pregunta-ho a la barra.',
+  'gira.kicker': 'No saps quin entrepà demanar?', 'gira.title': 'Gira el sol', 'gira.lead': 'El nostre sol està fet de vuit ampolles i tenim vuit entrepans especials. Prem el centre i deixa que el sol triï el teu.',
+  'gira.pre': 'El teu entrepà d’avui…', 'gira.empty': 'Prem «Gira!» al centre del sol.', 'gira.btn': 'Gira!',
   'vins.kicker': 'Bistro · vinoteca', 'vins.script': 'El nostre nom ho diu tot',
   'vins.lead': 'Solivins ve de «sol i vins». Per això la nostra carta reuneix {n} vins de {o} orígens, i gairebé tots se serveixen per copes perquè puguis tastar sense demanar l’ampolla.',
   'vins.c1': 'vins a la carta', 'vins.c2': 'se serveixen per copes', 'vins.c3': 'la copa, des de', 'vins.c4': 'orígens: de la Rioja i la Terra Alta a Portugal i França',
@@ -903,7 +930,7 @@ ca: {
   'md.kicker': 'Dia de partit', 'md.title': 'Així es viu a Solivins',
   'md.1t': 'Vine sense reservar', 'md.1p': 'Terrassa i menjador amplis, oberts de 8:00 a 24:00 cada dia. Sempre hi ha lloc per a un més.',
   'md.2t': 'Una canya ben freda o una copa de vi', 'md.2p': 'Cervesa freda, vermut o qualsevol dels nostres vins per copes per acompanyar cada jugada.',
-  'md.3t': 'Un entrepà dels nostres', 'md.3p': 'Milanga, Serranito, Empanado… bon pa, bons ingredients i molt de gust.',
+  'md.3t': 'Un entrepà dels nostres', 'md.3p': 'Milanga, Serranito, Pollito… bon pa, bons ingredients i molt de gust.',
   'md.4t': 'I a cantar el gol amb els amics', 'md.4p': 'El millor ambient de Lloret per viure cada partit com a l’estadi.',
   'insta.kicker': 'Segueix-nos a Instagram · @solivins', 'insta.aria': 'Veure a Instagram',
   'op.kicker': 'Opinions a Google', 'op.stars': '4,4 de 5', 'op.count': '1.503 ressenyes · El que més s’esmenta:', 'op.btn': 'Veure totes les ressenyes a Google', 'op.prev': 'Anterior', 'op.next': 'Següent', 'op.review': 'Ressenya a Google',
@@ -929,24 +956,40 @@ const BALL = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#fff
 $('.pitchbar .ball').innerHTML = BALL;
 $('#heroTitle').innerHTML = [...'Solivins'].map((ch, k) => `<span class="ch" style="--k:${k}" aria-hidden="true">${ch}</span>`).join('');
 
-/* ---------- Datos: carta ---------- */
-const TILES = [
-  {n: {es: 'Tapas', ca: 'Tapes'}, img: '1718912334263-1518476fe9b1', p: [6.5, 6.5, 9.2, 8, 7.9, 10.5, 8.8, 11.9]},
-  {n: {es: 'Tostadas', ca: 'Torrades'}, img: '1594978583693-8dfdfc93f052', p: [8.5, 9.5, 9.5, 9.9, 10.5]},
-  {n: {es: 'Bocadillos', ca: 'Entrepans'}, img: '1749513762144-8991c898d95c', p: [9.5, 9.5, 9.5, 9.9, 10.9, 8.5, 5.5]},
-  {n: {es: 'Burgers', ca: 'Burgers'}, img: '1551782450-a2132b4ba21d', p: [11.9, 12.9, 10.9, 10.9]},
-  {n: {es: 'Del mar', ca: 'Del mar'}, img: '1764397514672-63b1a7a79110', p: [9.9, 6.5, 9.2, 8, 8.9, 8, 20.9, 17.9, 16.9, 16.9]},
-  {n: {es: 'Carnes', ca: 'Carns'}, img: '1683315446874-e6a629087ef8', p: [22.9, 17.9, 19.9, 23.9, 11.9, 15.9]},
-];
-const FAV = [
-  {w: {es: 'BRAVAS', ca: 'BRAVES'}, n: {es: 'Patatas bravas', ca: 'Patates braves'}, tag: {es: 'Tapas · para compartir', ca: 'Tapes · per compartir'}, d: {es: 'La tapa que no puede faltar en la mesa.', ca: 'La tapa que no pot faltar a taula.'}, p: 6.5},
-  {w: {es: 'CROQUETAS', ca: 'CROQUETES'}, n: {es: 'Croquetas caseras de jamón serrano', ca: 'Croquetes casolanes de pernil serrà'}, tag: {es: 'Tapas · para compartir', ca: 'Tapes · per compartir'}, d: {es: 'Caseras, como tienen que ser.', ca: 'Casolanes, com han de ser.'}, p: 7.9},
-  {w: {es: 'MILANGA', ca: 'MILANGA'}, n: {es: 'Bocadillo Milanga', ca: 'Entrepà Milanga'}, tag: {es: 'Bocadillos', ca: 'Entrepans'}, d: {es: 'Pan con tomate, filetes de ternera rebozados, queso Edam, lechuga tierna, tomate y salsa especial de la casa.', ca: 'Pa amb tomàquet, filets de vedella arrebossats, formatge Edam, enciam tendre, tomàquet i salsa especial de la casa.'}, p: 10.9},
-  {w: {es: 'CATALANA', ca: 'CATALANA'}, n: {es: 'Tostada Catalana', ca: 'Torrada Catalana'}, tag: {es: 'Tostadas', ca: 'Torrades'}, d: {es: 'Ajo, tomate untado, pimientos, berenjena y cebolla escalivada, olivas negras y anchoas.', ca: 'All, tomàquet untat, pebrots, albergínia i ceba escalivada, olives negres i anxoves.'}, p: 9.5},
-  {w: {es: 'BURGER', ca: 'BURGER'}, n: {es: 'Hamburguesa Solivins', ca: 'Hamburguesa Solivins'}, tag: {es: 'Burgers', ca: 'Burgers'}, d: {es: 'Pan brioche, medallón de ternera de 180 g, queso Cheddar, bacon caramelizado y salsa especial de la casa.', ca: 'Pa brioix, medalló de vedella de 180 g, formatge Cheddar, bacó caramel·litzat i salsa especial de la casa.'}, p: 11.9},
-  {w: {es: 'NACHOS', ca: 'NACHOS'}, n: {es: 'Nachos estresados', ca: 'Nachos estressats'}, tag: {es: 'Tapas · para compartir', ca: 'Tapes · per compartir'}, d: {es: 'Chili con carne, pico de gallo, Cheddar y guacamole.', ca: 'Chili amb carn, pico de gallo, Cheddar i guacamole.'}, p: 11.9},
-  {w: {es: 'PULPO', ca: 'POP'}, n: {es: 'Pata de pulpo a la plancha', ca: 'Pota de pop a la planxa'}, tag: {es: 'Del mar', ca: 'Del mar'}, d: {es: 'Con patatas en adobo y salsa de pimientos asados.', ca: 'Amb patates adobades i salsa de pebrots rostits.'}, p: 20.9},
-  {w: {es: 'CABRA', ca: 'CABRA'}, n: {es: 'Ensalada de queso de cabra', ca: 'Amanida de formatge de cabra'}, tag: {es: 'Ensaladas', ca: 'Amanides'}, d: {es: 'Hojas verdes, tomate, frutos del bosque, queso de cabra y vinagreta de miel y mostaza.', ca: 'Fulles verdes, tomàquet, fruites del bosc, formatge de cabra i vinagreta de mel i mostassa.'}, p: 10.9},
+/* ---------- Datos: tapas (tal cual en la carta en PDF) ---------- */
+const TAPAS = {
+  land: [
+    {n: {es: 'Patatas Bravas', ca: 'Patates Braves'}, p: 6.5},
+    {n: {es: 'Patatas picantes Solivins', ca: 'Patates picants Solivins'}, p: 6.5},
+    {n: {es: 'Pollo Cajún con salsa picante', ca: 'Pollastre Cajún amb salsa picant'}, p: 9.2},
+    {n: {es: 'Alitas de pollo doradas con sal de lima', ca: 'Aletes de pollastre daurades amb sal de llima'}, p: 8},
+    {n: {es: 'Croquetas caseras de jamón serrano', ca: 'Croquetes casolanes de pernil serrà'}, p: 7.9},
+    {n: {es: 'Bocaditos de Camembert rebozados con mermelada de higos', ca: 'Bocadets de Camembert arrebossats amb melmelada de figues'}, p: 10.5},
+    {n: {es: 'Empanada Argentina', ca: 'Empanada Argentina'}, p: 3.2, u: 1},
+    {n: {es: 'Empanada picante', ca: 'Empanada picant'}, p: 3.2, u: 1},
+    {n: {es: 'Empanada carne de ternera mechada', ca: 'Empanada de carn de vedella metxada'}, p: 3.2, u: 1},
+    {n: {es: 'Nachos con queso y guacamole', ca: 'Nachos amb formatge i guacamole'}, d: {es: 'Cheddar, pico de gallo y guacamole', ca: 'Cheddar, pico de gallo i guacamole'}, p: 8.8},
+    {n: {es: 'Nachos estresados', ca: 'Nachos estresats'}, d: {es: 'Chilli carne, pico de gallo, Cheddar y guacamole', ca: 'Chili amb carn, pico de gallo, Cheddar i guacamole'}, p: 11.9},
+  ],
+  sea: [
+    {n: {es: 'Calamares andaluza', ca: 'Calamars andalusa'}, p: 9.9},
+    {n: {es: 'Boquerones en vinagre', ca: 'Seitons en vinagre'}, p: 6.5},
+    {n: {es: 'Sardinas en escabeche de «l’avi Miquel»', ca: 'Sardines en escabetx de l’avi Miquel'}, p: 9.2},
+    {n: {es: 'Boquerones fritos', ca: 'Seitons fregits'}, p: 8},
+    {n: {es: 'Torpedo de langostinos con salsa agridulce', ca: '«Torpedo» de llagostins amb salsa agredolça'}, p: 8.9},
+    {n: {es: 'Croquetas caseras de salmón ahumado y eneldo', ca: 'Croquetes casolanes de salmó fumat i anet'}, p: 8},
+  ],
+};
+/* ---------- Datos: bocatas especiales (ruleta) ---------- */
+const BOC = [
+  {n: 'Huevo', d: {es: 'Bacon a la plancha, cebolla frita, huevos y queso Edam.', ca: 'Bacó a la planxa, ceba fregida, ous i formatge Edam.'}},
+  {n: 'Pollito', d: {es: 'Pechuga a la plancha con hierbas, lechuga tierna y queso Brie.', ca: 'Pit a la planxa amb herbes, enciam tendre i formatge Brie.'}},
+  {n: 'Serranito', d: {es: 'Lomo de cerdo a la plancha, pimientos verdes asados, jamón serrano y queso Edam.', ca: 'Llom de porc a la planxa, pebrots verds rostits, pernil serrà i formatge Edam.'}},
+  {n: 'Chicha', d: {es: 'Salchichas, queso Edam y pimiento verde.', ca: 'Salsitxes, formatge Edam i pebrot verd.'}},
+  {n: 'Empanaooo', d: {es: 'Pechuga de pollo rebozada, lechuga tierna, cebolla roja y salsa especial.', ca: 'Pit de pollastre arrebossat, enciam tendre, ceba vermella i salsa especial.'}},
+  {n: 'Milanga', d: {es: 'Filetes de ternera rebozados, queso Edam, lechuga tierna, tomate, salsa especial de la casa y huevos fritos.', ca: 'Filets de vedella arrebossats, formatge Edam, enciam tendre, tomàquet, salsa especial de la casa i ous ferrats.'}},
+  {n: 'Atuna', d: {es: 'Migas de atún, pimientos del piquillo y olivas rellenas.', ca: 'Engrunes de tonyina, pebrots del piquillo i olives farcides.'}},
+  {n: {es: 'Frankfurt clásico', ca: 'Frankfurt clàssic'}, w: 'FRANKFURT', d: {es: 'Pan brioche y frankfurt.', ca: 'Pa brioix i frankfurt.'}},
 ];
 
 /* ---------- Datos: vinos (carta de vinos) ---------- */
@@ -1128,22 +1171,22 @@ function renderStrip() {
     <div class="mc-bot"><div class="mc-time"><b>${hhmm(m.start)}</b><small>${tvName(m)}</small></div><button class="mc-ics" type="button" data-ics="${m.id}" aria-label="${t('m.save', {h: short(m.h), a: short(m.a)})}" title="${t('m.savet')}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg></button></div>
   </article>`).join('');
 }
-function renderTiles() {
-  const shown = $('#tiles .cat.in') !== null;
-  $('#tiles').innerHTML = TILES.map((x, i) => `<a class="cat${shown ? ' in' : ''}" href="${CARTA_PDF}" target="_blank" rel="noopener" data-reveal style="--d:${(i % 3) * .08}s"><img src="${U(x.img, 900)}" alt="" loading="lazy"><div><b>${tt(x.n)}</b><em>${t('carta.from')} ${euro(Math.min(...x.p))}</em><span>${t('carta.see')}</span></div></a>`).join('');
-  if (!shown) $$('#tiles [data-reveal]').forEach(el => io.observe(el));
+function renderTapas() {
+  const li = (x, k) => `<li class="ti" style="--k:${k}"><div class="ti-row"><span class="ti-n">${tt(x.n)}</span><span class="ti-dots" aria-hidden="true"></span><span class="ti-p">${euro(x.p)}${x.u ? '<small>/u</small>' : ''}</span></div>${x.d ? `<p class="ti-d">${tt(x.d)}</p>` : ''}</li>`;
+  $('#tapLand').innerHTML = TAPAS.land.map(li).join('');
+  $('#tapSea').innerHTML = TAPAS.sea.map((x, k) => li(x, k + 2)).join('');
 }
 const WB = 'M90 69Q90 72 93 72L107 72Q110 72 110 69L110 36Q110 28 103.4 25L103.4 9L104.4 9L104.4 3.5L95.6 3.5L95.6 9L96.6 9L96.6 25Q90 28 90 36Z';
 function renderWheel() {
-  const g = FAV.map((f, i) => `<g transform="rotate(${i * 45} 100 100)"><path d="${WB}" fill="${i % 2 ? '#5A3324' : '#3B2219'}"/><text x="100" y="54" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 100 54)">${tt(f.w)}</text></g>`).join('');
+  const g = BOC.map((b, i) => `<g transform="rotate(${i * 45} 100 100)"><path d="${WB}" fill="${i % 2 ? '#5A3324' : '#3B2219'}"/><text x="100" y="54" text-anchor="middle" dominant-baseline="central" transform="rotate(-90 100 54)">${b.w || tt(b.n).toUpperCase()}</text></g>`).join('');
   $('#wheel').innerHTML = `<svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="rgba(59,34,25,.06)"/><circle cx="100" cy="100" r="98" fill="none" stroke="rgba(59,34,25,.15)" stroke-dasharray="2 4"/>${g}</svg>`;
 }
 let favIdx = null;
 function renderResult(anim) {
   const r = $('#result');
   if (favIdx == null) { r.innerHTML = `<span class="script">${t('gira.pre')}</span><h4>¿?</h4><p>${t('gira.empty')}</p>`; return; }
-  const f = FAV[favIdx];
-  r.innerHTML = `<span class="script">${t('gira.pre')}</span><h4>${tt(f.n)}</h4><p>${tt(f.d)}</p><div class="rmeta"><span>${tt(f.tag)}</span><b>${euro(f.p)}</b><a href="${CARTA_PDF}" target="_blank" rel="noopener">${t('gira.see')} ↗</a></div>`;
+  const b = BOC[favIdx];
+  r.innerHTML = `<span class="script">${t('gira.pre')}</span><h4>${tt(b.n)}</h4><p>${tt(b.d)}</p>`;
   if (anim && !RM) { r.classList.remove('pop'); void r.offsetWidth; r.classList.add('pop'); }
 }
 function renderVins() {
@@ -1195,7 +1238,7 @@ function paintStatus() {
   $('#status').classList.toggle('open', open);
 }
 function renderAll(anim) {
-  applyStatic(); renderTicker(); renderPill(); renderStrip(); renderTiles(); renderWheel(); renderResult(false);
+  applyStatic(); renderTicker(); renderPill(); renderStrip(); renderTapas(); renderWheel(); renderResult(false);
   renderVins(); renderWines(); renderWQ(); renderQuotes(); renderMentions(); renderBadges(); renderFem(anim); paintStatus();
   if (typeof renderHL === 'function' && $('#hl').children.length) renderHL();
 }
